@@ -1,0 +1,153 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.wrap { padding: 1rem 0; }
+.section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin: 2rem 0 0.75rem; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 10px; }
+.card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.score-ring { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500; flex-shrink: 0; }
+.score-good { background: #EAF3DE; color: #3B6D11; }
+.score-ok { background: #FAEEDA; color: #854F0B; }
+.score-bad { background: #FCEBEB; color: #A32D2D; }
+.card-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.card-sub { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
+.issue-list { list-style: none; }
+.issue-list li { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; padding: 5px 0; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); line-height: 1.5; }
+.issue-list li:last-child { border-bottom: none; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.dot-red { background: #E24B4A; }
+.dot-amber { background: #EF9F27; }
+.dot-green { background: #639922; }
+.pill { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; margin: 2px; }
+.pill-red { background: #FCEBEB; color: #A32D2D; }
+.pill-amber { background: #FAEEDA; color: #854F0B; }
+.pill-green { background: #EAF3DE; color: #3B6D11; }
+.pill-blue { background: #E6F1FB; color: #185FA5; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 10px; }
+.metric { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.85rem 1rem; }
+.metric-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; }
+.metric-val { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+.metric-note { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+.kw-row { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; }
+.kw-row:last-child { border-bottom: none; }
+.kw-name { color: var(--color-text-primary); font-weight: 500; }
+.kw-meta { display: flex; gap: 8px; align-items: center; }
+.comp-row { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; }
+.comp-row:last-child { border-bottom: none; }
+.bar-wrap { width: 100px; height: 6px; background: var(--color-background-secondary); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; }
+.action-item { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; }
+.action-item:last-child { border-bottom: none; }
+.priority { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; margin-top: 2px; }
+.p-high { background: #FCEBEB; color: #A32D2D; }
+.p-med { background: #FAEEDA; color: #854F0B; }
+.p-low { background: #EAF3DE; color: #3B6D11; }
+</style>
+
+<div class="wrap">
+
+<div class="grid2">
+  <div class="metric"><div class="metric-label">Overall SEO score</div><div class="metric-val" style="color:#639922">68/100</div><div class="metric-note">Room to grow</div></div>
+  <div class="metric"><div class="metric-label">On-page SEO</div><div class="metric-val" style="color:#639922">75/100</div><div class="metric-note">Good foundation</div></div>
+  <div class="metric"><div class="metric-label">Technical SEO</div><div class="metric-val" style="color:#EF9F27">65/100</div><div class="metric-note">Issues found</div></div>
+  <div class="metric"><div class="metric-label">Content depth</div><div class="metric-val" style="color:#E24B4A">55/100</div><div class="metric-note">Needs work</div></div>
+</div>
+
+<p class="section-title">On-page SEO audit</p>
+
+<div class="card">
+  <div class="card-header">
+    <div class="score-ring score-good">✓</div>
+    <div><div class="card-title">Title tag & meta description</div><div class="card-sub">Mostly good — minor keyword order issue</div></div>
+  </div>
+  <ul class="issue-list">
+    <li><span class="dot dot-green"></span><span>Title: "Freelance Laravel Developer in India | Hire Arun Tyagi" — clear, keyword-first ✓</span></li>
+    <li><span class="dot dot-amber"></span><span>Meta keywords tag includes "laravel developer dubai" as first keyword but the page targets India/Noida — misaligned priority</span></li>
+    <li><span class="dot dot-green"></span><span>OG tags, Twitter cards, canonical URL all present and correctly set ✓</span></li>
+    <li><span class="dot dot-amber"></span><span>Meta description is 168 chars — slightly over ideal 150–155 char limit; may get truncated in SERPs</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="score-ring score-ok">!</div>
+    <div><div class="card-title">Heading structure (H1–H3)</div><div class="card-sub">H1 is weak — misses primary keyword</div></div>
+  </div>
+  <ul class="issue-list">
+    <li><span class="dot dot-red"></span><span>H1 is "Hi, I'm Arun Tyagi" — zero keyword value. Google weights H1 heavily. Should be "Freelance Laravel Developer in Noida, India — Arun Tyagi" or similar</span></li>
+    <li><span class="dot dot-green"></span><span>H2s are present and relevant ("Laravel & Full-Stack Development Services", "How I Work") ✓</span></li>
+    <li><span class="dot dot-amber"></span><span>No H1 keyword = likely reason the site struggles to rank page 1 for "freelance laravel developer india"</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="score-ring score-ok">!</div>
+    <div><div class="card-title">Image SEO</div><div class="card-sub">Alt text partially implemented</div></div>
+  </div>
+  <ul class="issue-list">
+    <li><span class="dot dot-green"></span><span>Hero image has good alt: "Arun Tyagi — Freelance Laravel developer in Noida" ✓</span></li>
+    <li><span class="dot dot-amber"></span><span>Portfolio images have generic alt text like "Solar Setup India - Web Development Project" — should include relevant service keywords naturally</span></li>
+    <li><span class="dot dot-red"></span><span>No WebP format detected — serving JPG/PNG increases page load time and hurts Core Web Vitals</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="score-ring score-bad">✗</div>
+    <div><div class="card-title">Schema markup / structured data</div><div class="card-sub">Not detected — major missed opportunity</div></div>
+  </div>
+  <ul class="issue-list">
+    <li><span class="dot dot-red"></span><span>No Person schema (name, jobTitle, location, sameAs links)</span></li>
+    <li><span class="dot dot-red"></span><span>No LocalBusiness or ProfessionalService schema — critical for "near me" and local searches</span></li>
+    <li><span class="dot dot-red"></span><span>No Review/AggregateRating schema — testimonials exist but aren't machine-readable; rich stars won't appear in SERPs</span></li>
+    <li><span class="dot dot-red"></span><span>No FAQPage schema — 8 FAQs are present but can't trigger the FAQ rich result</span></li>
+    <li><span class="dot dot-amber"></span><span>Adding these schemas alone could significantly boost SERP CTR with rich results</span></li>
+  </ul>
+</div>
+
+<p class="section-title">Keyword ranking analysis</p>
+
+<div class="card">
+  <div class="card-header" style="margin-bottom:6px">
+    <div><div class="card-title">Estimated keyword positions</div><div class="card-sub">Based on page structure, content signals & competition (use GSC for exact data)</div></div>
+  </div>
+  <div class="kw-row"><span class="kw-name">freelance laravel developer noida</span><div class="kw-meta"><span class="pill pill-amber">~P 8–15</span><span style="color:var(--color-text-secondary);font-size:12px">Low vol</span></div></div>
+  <div class="kw-row"><span class="kw-name">hire laravel developer india</span><div class="kw-meta"><span class="pill pill-red">P 20+</span><span style="color:var(--color-text-secondary);font-size:12px">High comp</span></div></div>
+  <div class="kw-row"><span class="kw-name">laravel developer noida</span><div class="kw-meta"><span class="pill pill-amber">~P 10–20</span><span style="color:var(--color-text-secondary);font-size:12px">Med vol</span></div></div>
+  <div class="kw-row"><span class="kw-name">laravel developer dubai</span><div class="kw-meta"><span class="pill pill-amber">~P 8–15</span><span style="color:var(--color-text-secondary);font-size:12px">Dedicated page ✓</span></div></div>
+  <div class="kw-row"><span class="kw-name">php developer noida india</span><div class="kw-meta"><span class="pill pill-red">P 30+</span><span style="color:var(--color-text-secondary);font-size:12px">Low content</span></div></div>
+  <div class="kw-row"><span class="kw-name">react js developer india</span><div class="kw-meta"><span class="pill pill-red">P 30+</span><span style="color:var(--color-text-secondary);font-size:12px">High comp</span></div></div>
+  <div class="kw-row"><span class="kw-name">arun tyagi (branded)</span><div class="kw-meta"><span class="pill pill-green">P 1</span><span style="color:var(--color-text-secondary);font-size:12px">Ranking ✓</span></div></div>
+  <div class="kw-row"><span class="kw-name">saas developer india</span><div class="kw-meta"><span class="pill pill-amber">Untracked</span><span style="color:var(--color-text-secondary);font-size:12px">Opportunity</span></div></div>
+</div>
+
+<p class="section-title">Competitor comparison</p>
+
+<div class="card">
+  <div class="comp-row" style="font-size:12px;color:var(--color-text-secondary);padding-bottom:4px"><span>Domain</span><span style="display:flex;gap:30px"><span>DA est.</span><span>Content depth</span></span></div>
+  <div class="comp-row"><span style="font-weight:500;font-size:13px">aruntyagi.com <span style="font-size:11px;color:var(--color-text-secondary)">(you)</span></span><div style="display:flex;gap:24px;align-items:center"><div><div class="bar-wrap"><div class="bar-fill" style="width:30%;background:#639922"></div></div></div><div><div class="bar-wrap"><div class="bar-fill" style="width:45%;background:#639922"></div></div></div></div></div>
+  <div class="comp-row"><span style="font-weight:500;font-size:13px">upwork.com/hire/laravel/in</span><div style="display:flex;gap:24px;align-items:center"><div><div class="bar-wrap"><div class="bar-fill" style="width:95%;background:#E24B4A"></div></div></div><div><div class="bar-wrap"><div class="bar-fill" style="width:90%;background:#E24B4A"></div></div></div></div></div>
+  <div class="comp-row"><span style="font-weight:500;font-size:13px">clixlogix.com</span><div style="display:flex;gap:24px;align-items:center"><div><div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#EF9F27"></div></div></div><div><div class="bar-wrap"><div class="bar-fill" style="width:70%;background:#EF9F27"></div></div></div></div></div>
+  <div class="comp-row"><span style="font-weight:500;font-size:13px">goodfirms.co</span><div style="display:flex;gap:24px;align-items:center"><div><div class="bar-wrap"><div class="bar-fill" style="width:80%;background:#E24B4A"></div></div></div><div><div class="bar-wrap"><div class="bar-fill" style="width:75%;background:#E24B4A"></div></div></div></div></div>
+  <div class="comp-row"><span style="font-weight:500;font-size:13px">arc.dev/hire/laravel/in</span><div style="display:flex;gap:24px;align-items:center"><div><div class="bar-wrap"><div class="bar-fill" style="width:75%;background:#E24B4A"></div></div></div><div><div class="bar-wrap"><div class="bar-fill" style="width:65%;background:#EF9F27"></div></div></div></div></div>
+  <div style="font-size:11px;color:var(--color-text-secondary);margin-top:8px">Key advantage you have: solo freelancer with a dedicated, indexable portfolio — lean into it vs. agencies</div>
+</div>
+
+<p class="section-title">Priority action plan</p>
+
+<div class="card">
+  <div class="action-item"><span class="priority p-high">Critical</span><div><strong>Fix H1 tag</strong> — change from "Hi, I'm Arun Tyagi" to keyword-rich heading like "Freelance Laravel Developer in Noida, India". This is the single fastest ranking win available.</div></div>
+  <div class="action-item"><span class="priority p-high">Critical</span><div><strong>Add JSON-LD schema</strong> — implement Person + LocalBusiness + FAQPage + Review schemas. Google will show rich results (stars, FAQs) and boost local visibility.</div></div>
+  <div class="action-item"><span class="priority p-high">Critical</span><div><strong>Google Business Profile</strong> — create/verify a GBP listing for your Sector 58 address. Essential for local "laravel developer near me" searches.</div></div>
+  <div class="action-item"><span class="priority p-med">Important</span><div><strong>Add backlinks via Clutch, Goodfirms, Sortlist</strong> — competitors dominate because of directory listings. Get listed and earn dofollow links from high-DA directories.</div></div>
+  <div class="action-item"><span class="priority p-med">Important</span><div><strong>Convert images to WebP</strong> and add lazy loading. Core Web Vitals (LCP, CLS) are a confirmed Google ranking factor.</div></div>
+  <div class="action-item"><span class="priority p-med">Important</span><div><strong>Trim meta description to &lt;155 chars</strong> and reorder meta keywords to put India/Noida first instead of Dubai.</div></div>
+  <div class="action-item"><span class="priority p-med">Important</span><div><strong>Target "SaaS developer India"</strong> and "custom web app developer noida" — lower competition, strong buying intent, unaddressed on the site.</div></div>
+  <div class="action-item"><span class="priority p-low">Growth</span><div><strong>Publish 2 blog posts/month</strong> targeting long-tail keywords: "laravel vs node.js for SaaS", "how much does a web app cost in india". Blog already exists — use it.</div></div>
+  <div class="action-item"><span class="priority p-low">Growth</span><div><strong>Add case studies with metrics</strong> — "Dubai Charity donations up 40%" is in your testimonials. Turn that into a detailed case study page. Google rewards E-E-A-T signals.</div></div>
+  <div class="action-item"><span class="priority p-low">Growth</span><div><strong>Link your LinkedIn properly</strong> — the footer has two different LinkedIn URLs (androiddeveloperindia vs laravel-developer-india). Pick one canonical profile and update all references.</div></div>
+</div>
+
+</div>

@@ -1,0 +1,141 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:1rem 0;font-family:var(--font-sans)}
+.section{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:10px;overflow:hidden}
+.sec-header{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--color-background-secondary);cursor:pointer;user-select:none}
+.sec-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.ok{background:var(--color-background-success);color:var(--color-text-success)}
+.warn{background:var(--color-background-warning);color:var(--color-text-warning)}
+.bad{background:var(--color-background-danger);color:var(--color-text-danger)}
+.sec-title{font-size:13px;font-weight:500;color:var(--color-text-primary);flex:1}
+.sec-status{font-size:11px;padding:2px 8px;border-radius:10px}
+.status-ok{background:var(--color-background-success);color:var(--color-text-success)}
+.status-warn{background:var(--color-background-warning);color:var(--color-text-warning)}
+.status-bad{background:var(--color-background-danger);color:var(--color-text-danger)}
+.sec-body{padding:0 14px}
+.issue{display:grid;grid-template-columns:16px 1fr;gap:8px;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:12px;line-height:1.5;align-items:start}
+.issue:last-child{border-bottom:none}
+.dot{width:6px;height:6px;border-radius:50%;margin-top:5px}
+.dot-ok{background:var(--color-text-success)}
+.dot-warn{background:var(--color-text-warning)}
+.dot-bad{background:var(--color-text-danger)}
+.issue-label{color:var(--color-text-secondary)}
+.issue-label b{color:var(--color-text-primary);font-weight:500}
+.fix{font-size:11px;color:var(--color-text-tertiary);margin-top:2px;font-style:italic}
+.summary-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.sum-card{border-radius:var(--border-radius-md);padding:10px 12px;border:0.5px solid var(--color-border-tertiary)}
+.sum-num{font-size:24px;font-weight:500;line-height:1}
+.sum-lbl{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+</style>
+<div class="wrap">
+
+<div class="summary-bar">
+  <div class="sum-card" style="background:var(--color-background-success)">
+    <div class="sum-num" style="color:var(--color-text-success)">4</div>
+    <div class="sum-lbl">Already fixed ✓</div>
+  </div>
+  <div class="sum-card" style="background:var(--color-background-warning)">
+    <div class="sum-num" style="color:var(--color-text-warning)">5</div>
+    <div class="sum-lbl">Needs small fix</div>
+  </div>
+  <div class="sum-card" style="background:var(--color-background-danger)">
+    <div class="sum-num" style="color:var(--color-text-danger)">6</div>
+    <div class="sum-lbl">Still wrong / missing</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon ok">✓</div>
+    <div class="sec-title">Hero / H1 Section</div>
+    <span class="sec-status status-ok">Mostly good</span>
+  </div>
+  <div class="sec-body">
+    <div class="issue"><div class="dot dot-ok"></div><div class="issue-label"><b>H1 is correct</b> — "Freelance Laravel Developer in India Who Builds Things That Actually Work" ✓</div></div>
+    <div class="issue"><div class="dot dot-ok"></div><div class="issue-label"><b>Phone number in header</b> — +91 8791775933 visible ✓</div></div>
+    <div class="issue"><div class="dot dot-ok"></div><div class="issue-label"><b>Scarcity banner</b> — "Currently accepting 2 new clients for Q2 2026" ✓</div></div>
+    <div class="issue"><div class="dot dot-ok"></div><div class="issue-label"><b>3 CTAs</b> — Book a call, View my work, Get a quote ✓</div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>Noida NOT mentioned anywhere in hero</b> — competitor ajkumar.in ranks for "Laravel developer Noida" simply by mentioning Noida in body text. Hero or subtext must say it.<div class="fix">Fix: Add "Based in Noida, Delhi NCR" below the sub-headline or in the stats row</div></div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>Missing space</b> in subtext — "grow, convert, and scale.I help startups..." (no space between two sentences)<div class="fix">Fix: Add space/line break between "scale." and "I help"</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon bad">✗</div>
+    <div class="sec-title">"Why Choose Our Services" Section</div>
+    <span class="sec-status status-bad">Needs rewrite</span>
+  </div>
+  <div class="sec-body">
+    <div class="issue"><div class="dot dot-bad"></div><div class="issue-label"><b>"Our Services" — wrong identity language.</b> You are a freelancer, not a company. "Our" implies a team.<div class="fix">Fix: Change to "Why Work With Me" or "Why Clients Choose Arun"</div></div></div>
+    <div class="issue"><div class="dot dot-bad"></div><div class="issue-label"><b>Still says "Laravel Developer in Gurugram and Dubai"</b> — this section completely ignores Noida and India-wide positioning. Gurugram+Dubai is your OLD identity.<div class="fix">Fix: Change to "Full-Stack Laravel Developer based in Noida, India — serving startups and businesses across Delhi NCR, India, and globally."</div></div></div>
+    <div class="issue"><div class="dot dot-bad"></div><div class="issue-label"><b>"Spring Boot" in tech stack</b> — Spring Boot is a Java framework. You are a PHP/Laravel developer. This sends a completely wrong signal to both Google and clients.<div class="fix">Fix: Remove Spring Boot. Add: Redis, Docker, AWS, Tailwind CSS</div></div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>"I am a full-stack web developer specializing as a Laravel Developer in Gurugram and Dubai"</b> — paragraph 1 still uses old geo-targeting. Noida missing entirely.<div class="fix">Fix: Rewrite paragraph with India + Noida as primary, Dubai as secondary</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon bad">✗</div>
+    <div class="sec-title">"Our Web Development Services" Section</div>
+    <span class="sec-status status-bad">Two issues</span>
+  </div>
+  <div class="sec-body">
+    <div class="issue"><div class="dot dot-bad"></div><div class="issue-label"><b>"Our Web Development Services"</b> — "Our" language again. Inconsistent with "I" freelancer identity.<div class="fix">Fix: "My Web Development Services" or "Services I Offer"</div></div></div>
+    <div class="issue"><div class="dot dot-bad"></div><div class="issue-label"><b>Service cards showing raw page content as excerpts</b> — e.g. Laravel card shows "Looking for a reliable Laravel Developer in India to build secure, scalable..." and PHP card shows "PHP Development Services in Delhi NCRWelcome to professional PHP Development..." — these are raw database text dumps, looks broken and unprofessional.<div class="fix">Fix: Write clean 1–2 sentence descriptions for each service card manually</div></div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>No links to your new "done" pages</b> — /freelance-laravel-developer-noida, /laravel-development-cost-india etc. are published but none are linked from homepage services section.<div class="fix">Fix: Add "See pricing guide →" and "Hire in Noida →" as secondary links under service cards</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon bad">✗</div>
+    <div class="sec-title">"How We Work" Section</div>
+    <span class="sec-status status-bad">Wrong language</span>
+  </div>
+  <div class="sec-body">
+    <div class="issue"><div class="dot dot-bad"></div><div class="issue-label"><b>Uses "We" and "Our team" throughout</b> — "Our team creates beautiful...", "We start by understanding...", "We launch your project..." — completely contradicts your freelancer identity. A client reading this will think you're an agency.<div class="fix">Fix: Replace all "We/Our team" with "I/My". e.g. "I start by understanding your business goals..."</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon warn">!</div>
+    <div class="sec-title">Portfolio Section</div>
+    <span class="sec-status status-warn">One fix needed</span>
+  </div>
+  <div class="sec-body">
+    <div class="issue"><div class="dot dot-ok"></div><div class="issue-label"><b>Portfolio looks good</b> — real projects with images, tech tags, live demo links ✓</div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>"Our Portfolio & Case Studies"</b> — again "Our" not "My".<div class="fix">Fix: "My Portfolio & Case Studies"</div></div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>SolarSquare and PayBev have no tech tags</b> — other projects show Laravel, React etc. but these two show nothing.<div class="fix">Fix: Add technology tags to all portfolio items</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon warn">!</div>
+    <div class="sec-title">FAQs Section</div>
+    <span class="sec-status status-warn">Vague answers</span>
+  </div>
+  <div class="sec-body">
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>"How much does it cost to hire a Laravel developer?"</b> answer is too vague — "The cost depends on project requirements, complexity, and timeline. I offer flexible pricing models..." — this is a Google ranking opportunity being wasted.<div class="fix">Fix: "Senior freelance Laravel developers in India charge ₹2,500–₹5,000/hr. Fixed projects start from ₹25,000. See full pricing guide →"</div></div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>No internal links in FAQ answers</b> — "Are you available in Delhi NCR?" answer mentions Noida/Gurugram but links to nothing.<div class="fix">Fix: Link relevant answers to /freelance-laravel-developer-noida and /laravel-development-cost-india</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-icon bad">✗</div>
+    <div class="sec-title">Footer</div>
+    <span class="sec-status status-bad">Outdated identity</span>
+  </div>
+  <div class="sec-body">
+    <div class="issue"><div class="dot dot-bad"></div><div class="issue-label"><b>Footer tagline says "Laravel Developer in Dubai Gurugram | React JS Developer"</b> — this is your old identity. No mention of India, Noida, or freelance.<div class="fix">Fix: "Freelance Laravel Developer in India | Noida, Delhi NCR | aruntyagi.com"</div></div></div>
+    <div class="issue"><div class="dot dot-bad"></div><div class="issue-label"><b>Contact location says "Gurugram, India / Dubai, UAE / Remote"</b> — Noida is missing even though GBP is set to Noida. This inconsistency confuses Google.<div class="fix">Fix: "Noida, India / Dubai, UAE / Remote" — Noida should be first</div></div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>Footer "Cities" section missing Gurugram</b> — Delhi, Noida, Greater Noida listed but Gurugram not in Cities (only in footer description above). You have a /website-developer-gurugram page done.<div class="fix">Fix: Add Gurugram to footer Cities list with link to /website-developer-gurugram</div></div></div>
+    <div class="issue"><div class="dot dot-warn"></div><div class="issue-label"><b>5 "done" pages not in footer Services section</b> — /freelance-laravel-developer-noida, /laravel-development-cost-india etc. should be in footer for internal linking.<div class="fix">Fix: Add at least /laravel-development-cost-india and /hire-laravel-developer-india-hourly-rate to footer services list</div></div></div>
+  </div>
+</div>
+
+</div>

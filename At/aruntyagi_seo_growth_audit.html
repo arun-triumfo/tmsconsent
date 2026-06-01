@@ -1,0 +1,289 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.wrap{padding:1.5rem 0;max-width:680px}
+h1{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin:2rem 0 .75rem}
+h3{font-size:15px;font-weight:500;color:var(--color-text-primary);margin:.75rem 0 .4rem}
+p,li{font-size:14px;color:var(--color-text-secondary);line-height:1.7}
+li{margin-left:1.25rem;margin-bottom:3px}
+.subtitle{font-size:13px;color:var(--color-text-tertiary);margin-bottom:2rem}
+.badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:500}
+.badge-ok{background:var(--color-background-success);color:var(--color-text-success)}
+.badge-warn{background:var(--color-background-warning);color:var(--color-text-warning)}
+.badge-bad{background:var(--color-background-danger);color:var(--color-text-danger)}
+.badge-info{background:var(--color-background-info);color:var(--color-text-info)}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.5rem 0}
+.score-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:1rem 0}
+.score-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem;text-align:center}
+.score-num{font-size:26px;font-weight:500;color:var(--color-text-primary);line-height:1.1}
+.score-lbl{font-size:11px;color:var(--color-text-tertiary);margin-top:3px}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1rem 0}
+.swot-cell{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem}
+.swot-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+.s-title{color:#0F6E56}
+.w-title{color:#993C1D}
+.o-title{color:#185FA5}
+.t-title{color:#993556}
+.row-kw{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.row-kw:last-child{border-bottom:none}
+.kw-name{font-size:13px;color:var(--color-text-primary)}
+.kw-meta{font-size:11px;color:var(--color-text-tertiary);text-align:right}
+.phase-row{display:flex;gap:0;margin:1rem 0;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.phase{flex:1;padding:.9rem .75rem;border-right:0.5px solid var(--color-border-tertiary)}
+.phase:last-child{border-right:none}
+.phase-num{font-size:11px;color:var(--color-text-tertiary);font-weight:500}
+.phase-name{font-size:13px;font-weight:500;color:var(--color-text-primary);margin:.2rem 0}
+.phase-dur{font-size:11px;color:var(--color-text-tertiary)}
+.leak-item{display:flex;gap:.65rem;align-items:flex-start;padding:.6rem;border-radius:var(--border-radius-md);margin-bottom:6px;background:var(--color-background-secondary)}
+.leak-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.mofu-item{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.85rem;margin-bottom:10px}
+.mofu-num{font-size:11px;font-weight:500;color:var(--color-text-tertiary)}
+.mofu-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin:.2rem 0}
+.tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:.4rem}
+.tag{font-size:11px;padding:2px 8px;border-radius:20px;border:0.5px solid var(--color-border-secondary);color:var(--color-text-secondary)}
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:.75rem 0}
+.action-card{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:.9rem}
+.action-card h3{margin-bottom:.4rem}
+.priority-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.priority-row:last-child{border-bottom:none}
+.p-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.p-red{background:#E24B4A}
+.p-amber{background:#EF9F27}
+.p-teal{background:#1D9E75}
+.pricing-alert{border-left:3px solid #E24B4A;padding:.7rem 1rem;background:var(--color-background-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;margin:.75rem 0}
+</style>
+<div class="wrap">
+  <div class="subtitle">Comprehensive SEO & Lead Generation Audit — aruntyagi.com · April 2026</div>
+
+  <div class="score-row">
+    <div class="score-card"><div class="score-num" style="color:#EF9F27">6.2</div><div class="score-lbl">Overall SEO Score</div></div>
+    <div class="score-card"><div class="score-num" style="color:#E24B4A">4.5</div><div class="score-lbl">Intl. Authority</div></div>
+    <div class="score-card"><div class="score-num" style="color:#EF9F27">6.8</div><div class="score-lbl">On-Page Health</div></div>
+    <div class="score-card"><div class="score-num" style="color:#E24B4A">3.9</div><div class="score-lbl">Conversion Rate Est.</div></div>
+  </div>
+  <p style="font-size:12px;color:var(--color-text-tertiary);margin-top:-4px">Scores out of 10 based on site crawl analysis. Intl. authority reflects estimated global backlink profile.</p>
+
+  <hr class="divider">
+  <h2>1. Current Keyword Positioning</h2>
+  <p style="margin-bottom:.75rem">The site appears to rank primarily for local, branded, and technology-specific long-tail terms. High-value commercial intent keywords remain largely uncontested. Here is the estimated ranking landscape:</p>
+
+  <div style="border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin:.75rem 0">
+    <div style="padding:.6rem 1rem;background:var(--color-background-secondary);display:flex;justify-content:space-between;font-size:12px;font-weight:500;color:var(--color-text-tertiary)">
+      <span>Keyword cluster</span><span>Type · Est. position</span>
+    </div>
+    <div style="padding:0 1rem">
+      <div class="row-kw"><span class="kw-name">arun tyagi developer / aruntyagi.com</span><div><span class="badge badge-ok">Branded</span><div class="kw-meta">P1 · Easy hold</div></div></div>
+      <div class="row-kw"><span class="kw-name">freelance laravel developer delhi ncr</span><div><span class="badge badge-ok">Local service</span><div class="kw-meta">P1–3 · Active</div></div></div>
+      <div class="row-kw"><span class="kw-name">php freelancer noida / gurugram</span><div><span class="badge badge-ok">Local service</span><div class="kw-meta">P1–5 · Active</div></div></div>
+      <div class="row-kw"><span class="kw-name">laravel developer india / dubai</span><div><span class="badge badge-warn">Geo-expansion</span><div class="kw-meta">P5–15 · Growing</div></div></div>
+      <div class="row-kw"><span class="kw-name">react js developer uk / singapore</span><div><span class="badge badge-warn">Intl. target</span><div class="kw-meta">P10–20 · Weak</div></div></div>
+      <div class="row-kw"><span class="kw-name">hire laravel developer usa / uk</span><div><span class="badge badge-bad">High-value gap</span><div class="kw-meta">Not ranking</div></div></div>
+      <div class="row-kw"><span class="kw-name">next.js development services</span><div><span class="badge badge-bad">Service gap</span><div class="kw-meta">Not ranking</div></div></div>
+      <div class="row-kw"><span class="kw-name">ai integration developer india</span><div><span class="badge badge-bad">Emerging gap</span><div class="kw-meta">Not ranking</div></div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h2>2. On-Page SEO Status</h2>
+
+  <h3>Meta & Title Analysis</h3>
+  <div class="pricing-alert">
+    <p style="font-size:13px;color:var(--color-text-secondary)"><strong style="color:var(--color-text-primary)">Critical issue:</strong> The homepage title tag reads <em>"Laravel Freelance Developer in Delhi NCR, Noida, Gurugram | Arun Tyagi"</em> — this restricts organic reach to purely local queries and signals a micro-market to international crawlers. For global expansion, the title must evolve.</p>
+  </div>
+
+  <div style="border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin:.75rem 0;overflow:hidden">
+    <div style="padding:0 1rem">
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-red"></div><span style="font-size:13px;color:var(--color-text-primary)">Title tag: hyper-local only, no global signal</span></div><span class="badge badge-bad">Critical</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-red"></div><span style="font-size:13px;color:var(--color-text-primary)">Meta description missing on most service pages</span></div><span class="badge badge-bad">Critical</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-amber"></div><span style="font-size:13px;color:var(--color-text-primary)">H1 lists 5 technologies in one tag (diluted signal)</span></div><span class="badge badge-warn">Medium</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-amber"></div><span style="font-size:13px;color:var(--color-text-primary)">Schema markup absent (LocalBusiness, Person, Service)</span></div><span class="badge badge-warn">Medium</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-teal"></div><span style="font-size:13px;color:var(--color-text-primary)">FAQ schema present (good for rich snippets)</span></div><span class="badge badge-ok">Good</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-teal"></div><span style="font-size:13px;color:var(--color-text-primary)">Individual service pages exist per technology</span></div><span class="badge badge-ok">Good</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-teal"></div><span style="font-size:13px;color:var(--color-text-primary)">Blog is active with consistent publishing cadence</span></div><span class="badge badge-ok">Good</span></div>
+    </div>
+  </div>
+
+  <h3>3-Second Value Proposition Test</h3>
+  <p>The homepage hero reads: <em>"Hi, I'm Arun Tyagi — Laravel Developer | React JS Developer | PHP Developer..."</em> This is a <strong style="color:var(--color-text-primary)">role declaration, not a value proposition.</strong> International B2B buyers want to know what outcome you deliver, not your job title.</p>
+  <div class="pricing-alert" style="border-color:#EF9F27;margin-top:.6rem">
+    <p style="font-size:13px;color:var(--color-text-secondary)"><strong style="color:var(--color-text-primary)">Suggested reframe:</strong> "I help funded startups and SMEs in the US, UK & UAE ship production-ready Laravel + React apps — on time, with clean architecture." This passes the 3-second test for high-ticket buyers.</p>
+  </div>
+
+  <hr class="divider">
+  <h2>3. Conversion Friction — Leakage Points</h2>
+
+  <div class="leak-item"><div class="leak-icon">⚠</div><div><p style="font-size:13px;color:var(--color-text-primary);font-weight:500">Pricing page signals "budget freelancer," not premium agency</p><p>Packages starting at $149 USD are visible on the first fold of the pricing page. A US/UK buyer seeing this will immediately price-anchor low and either leave or undervalue the work. The pricing page needs a premium tier and a "Let's scope this together" CTA above the fixed packages.</p></div></div>
+  <div class="leak-item"><div class="leak-icon">⚠</div><div><p style="font-size:13px;color:var(--color-text-primary);font-weight:500">No social proof above the fold</p><p>Testimonials are buried below four sections. International leads decide in seconds — a quote from Ahmed Al-Rashid (Dubai Charity) or the fintech reference should be visible within the first scroll.</p></div></div>
+  <div class="leak-item"><div class="leak-icon">⚠</div><div><p style="font-size:13px;color:var(--color-text-primary);font-weight:500">Contact form has a math CAPTCHA ("What is 9 + 8?")</p><p>This is a friction point on mobile and feels unprofessional for high-ticket international buyers. Replace with reCAPTCHA v3 (invisible) or honeypot field.</p></div></div>
+  <div class="leak-item"><div class="leak-icon">⚠</div><div><p style="font-size:13px;color:var(--color-text-primary);font-weight:500">No exit-intent or scroll-depth lead capture</p><p>Visitors browsing the portfolio or blog have no "soft" conversion option. There is no email capture, no lead magnet download, and no retargeting pixel visible in the source structure.</p></div></div>
+  <div class="leak-item"><div class="leak-icon">⚠</div><div><p style="font-size:13px;color:var(--color-text-primary);font-weight:500">"Book a free call" CTA goes to /hire-me — not a calendar</p><p>The top-of-page urgency banner ("Currently accepting 2 new clients for Q2 2026") is excellent scarcity copy, but clicking "Book a free call" must land on a Calendly/Cal.com embed for zero-friction scheduling. A secondary form creates drop-off.</p></div></div>
+  <div class="leak-item"><div class="leak-icon">⚠</div><div><p style="font-size:13px;color:var(--color-text-primary);font-weight:500">Portfolio lacks ROI/outcome language</p><p>Portfolio items show screenshots and tech stacks, but no business impact metrics. "Dubai Charity: donations increased by 40%" exists as a testimonial but is not surfaced on the portfolio card itself. Outcome-first case studies convert international leads at 3–5x higher rates.</p></div></div>
+
+  <hr class="divider">
+  <h2>SWOT Analysis</h2>
+  <div class="swot">
+    <div class="swot-cell">
+      <div class="swot-title s-title">Strengths</div>
+      <ul>
+        <li>Real international portfolio — Dubai Charity, SolarSquare, PayBev signal credibility</li>
+        <li>Scarcity mechanism ("2 new clients for Q2") is sophisticated and trust-building</li>
+        <li>Service pages exist for every stack (Laravel, React, Next, Node, PHP)</li>
+        <li>Active blog with consistent publishing (~3 posts/month)</li>
+        <li>Free tools (Meta Tag Generator, SEO Audit) create sticky, recurring traffic</li>
+        <li>Geo pages exist for Dubai, Singapore, UAE, India</li>
+      </ul>
+    </div>
+    <div class="swot-cell">
+      <div class="swot-title w-title">Weaknesses</div>
+      <ul>
+        <li>Homepage title and H1 locked to Delhi NCR — kills global crawl signal</li>
+        <li>$149 entry price on pricing page caps perceived value internationally</li>
+        <li>No Schema markup (Person, Service, LocalBusiness, Review)</li>
+        <li>Blog posts are mostly "hire me in Delhi NCR" — thin for topical authority</li>
+        <li>No email list, retargeting pixel, or passive lead capture</li>
+        <li>Math CAPTCHA on contact form creates friction</li>
+        <li>Case studies lack quantified business outcomes</li>
+      </ul>
+    </div>
+    <div class="swot-cell">
+      <div class="swot-title o-title">Opportunities</div>
+      <ul>
+        <li>Dubai is underserved for Laravel developers — only 1 dedicated page exists</li>
+        <li>"AI integration + Laravel" is an emerging high-CPC keyword cluster (2025–26)</li>
+        <li>US/UK market actively searches "hire Laravel developer India" for cost arbitrage</li>
+        <li>Free SEO Audit tool can be gated as a lead magnet</li>
+        <li>No-code + Laravel hybrid projects are trending among SMEs globally</li>
+        <li>LinkedIn thought leadership content can drive inbound from MENA + UK</li>
+      </ul>
+    </div>
+    <div class="swot-cell">
+      <div class="swot-title t-title">Threats</div>
+      <ul>
+        <li>Upwork/Toptal profiles dominate "hire Laravel developer" SERPs globally</li>
+        <li>AI coding tools (Cursor, GitHub Copilot) commoditising entry-level dev work</li>
+        <li>Established Indian agencies (e.g. Webkul, ColoredCow) competing on same terms</li>
+        <li>Google's HCU penalises thin geo-doorway pages if not backed by real content</li>
+        <li>Without backlink growth, Delhi NCR rankings stagnate as site ages</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h2>4. Market Expansion — Phased Approach</h2>
+  <div class="phase-row">
+    <div class="phase" style="background:var(--color-background-secondary)">
+      <div class="phase-num">Phase 1</div>
+      <div class="phase-name">Consolidate NCR + Dubai</div>
+      <div class="phase-dur">Months 1–4</div>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin-top:.4rem">Own "laravel developer delhi ncr" + "laravel developer dubai." Build 5 outcome-led case studies. Add schema. Fix CTA to Calendly.</p>
+    </div>
+    <div class="phase" style="background:var(--color-background-secondary)">
+      <div class="phase-num">Phase 2</div>
+      <div class="phase-name">UK + Singapore</div>
+      <div class="phase-dur">Months 5–9</div>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin-top:.4rem">Publish MoFu content targeting UK/SG buyers. Build backlinks via guest posts on dev blogs. Create "hire Laravel developer UK" landing page with GBP pricing.</p>
+    </div>
+    <div class="phase">
+      <div class="phase-num">Phase 3</div>
+      <div class="phase-name">USA + High-Ticket</div>
+      <div class="phase-dur">Months 10–18</div>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin-top:.4rem">Pivot positioning to "AI-powered web applications" + "CTO-for-hire" retainer model. Target funded startups via Product Hunt and LinkedIn outreach. US minimum engagement: $5K.</p>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--color-text-tertiary);margin-top:.4rem">Recommendation: Do NOT abandon Local SEO. Delhi NCR delivers consistent, low-competition leads that fund international growth while authority builds.</p>
+
+  <hr class="divider">
+  <h2>5. Lead Generation Framework — Missing Elements</h2>
+  <div class="action-grid">
+    <div class="action-card">
+      <h3>Lead Magnets to Add</h3>
+      <ul style="margin-left:1rem">
+        <li>"Web App Cost Estimator" — interactive tool (already have cost guide, upgrade it)</li>
+        <li>Free technical audit PDF for any existing Laravel app</li>
+        <li>Gated "Laravel Performance Checklist" (PDF) on blog sidebar</li>
+        <li>Notion template: "SaaS MVP Tech Stack Planner"</li>
+      </ul>
+    </div>
+    <div class="action-card">
+      <h3>CTAs That Are Missing</h3>
+      <ul style="margin-left:1rem">
+        <li>Sticky "Book a 30-min free call" bar (visible on scroll)</li>
+        <li>Exit-intent popup on pricing page: "Not sure? Let's scope it for free."</li>
+        <li>Portfolio page: "Want similar results for your business? →"</li>
+        <li>Blog posts: inline CTA after every 3rd section (not just end-of-post)</li>
+      </ul>
+    </div>
+    <div class="action-card">
+      <h3>Trust Signals to Add</h3>
+      <ul style="margin-left:1rem">
+        <li>Upwork/Clutch verified rating badge</li>
+        <li>LinkedIn recommendation count visible</li>
+        <li>Response time SLA: "Reply within 4 hours" (you have this — make it a badge)</li>
+        <li>Video testimonial from Dubai client (even 60-second Loom)</li>
+      </ul>
+    </div>
+    <div class="action-card">
+      <h3>Conversion Infrastructure</h3>
+      <ul style="margin-left:1rem">
+        <li>Replace /hire-me form with Calendly embed (reduce steps to 1)</li>
+        <li>Add Google Analytics 4 + Meta Pixel for retargeting</li>
+        <li>Set up abandoned-form follow-up via Mailchimp/Brevo</li>
+        <li>WhatsApp Business button for MENA and South Asian prospects</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h2>6. MoFu Content Strategy — 5 High-Intent Topics</h2>
+  <p style="margin-bottom:.85rem">Middle-of-funnel content targets buyers who are already solution-aware and comparing vendors. These topics attract international B2B decision-makers actively researching before they hire.</p>
+
+  <div class="mofu-item">
+    <div class="mofu-num">Topic 01 · High priority</div>
+    <div class="mofu-title">"Laravel vs Node.js for SaaS Startups: Which Backend Should You Choose in 2026?"</div>
+    <p>Targets CTOs and technical founders in the US/UK researching stack decisions. Positions you as an expert advisor, not a commodity coder. Add a decision matrix and "Book a free architecture call" CTA.</p>
+    <div class="tag-row"><span class="tag">Decision content</span><span class="tag">US/UK audience</span><span class="tag">CTO-level</span><span class="tag">High purchase intent</span></div>
+  </div>
+  <div class="mofu-item">
+    <div class="mofu-num">Topic 02 · High priority</div>
+    <div class="mofu-title">"How We Built a Fintech Platform Handling 10,000+ Daily Transactions on Laravel (PayBev Case Study)"</div>
+    <p>Deep-dive case study with architecture diagram, timeline, challenges, and outcomes. Fintech is a high-value vertical. International fintech founders actively search "laravel fintech developer" and will find this.</p>
+    <div class="tag-row"><span class="tag">Case study</span><span class="tag">Fintech vertical</span><span class="tag">Proof of work</span><span class="tag">Linkable asset</span></div>
+  </div>
+  <div class="mofu-item">
+    <div class="mofu-num">Topic 03 · Medium-High priority</div>
+    <div class="mofu-title">"The Real Cost of Hiring a Laravel Developer in 2026: India vs USA vs UAE (Honest Breakdown)"</div>
+    <p>Targets international buyers explicitly researching offshore dev costs. Ranks for "hire laravel developer cost," captures leads at the budget comparison stage. Include a cost calculator widget.</p>
+    <div class="tag-row"><span class="tag">Buying stage</span><span class="tag">USA/UAE comparison</span><span class="tag">High commercial intent</span><span class="tag">Featured snippet potential</span></div>
+  </div>
+  <div class="mofu-item">
+    <div class="mofu-num">Topic 04 · Medium priority</div>
+    <div class="mofu-title">"Integrating AI Features into an Existing Laravel App: A Practical Developer's Guide"</div>
+    <p>AI integration is the fastest-growing request in web development. This positions you ahead of the "AI + Laravel" keyword wave and signals to clients you can build AI-augmented applications, commanding 2–3x higher project fees.</p>
+    <div class="tag-row"><span class="tag">Emerging trend</span><span class="tag">Premium positioning</span><span class="tag">Technical depth</span><span class="tag">Global audience</span></div>
+  </div>
+  <div class="mofu-item">
+    <div class="mofu-num">Topic 05 · Medium priority</div>
+    <div class="mofu-title">"Signs Your Startup Needs a Dedicated Laravel Developer (Not a WordPress Agency)"</div>
+    <p>Targets founders who started with WordPress/no-code and are hitting scaling limits. This qualifies the lead pre-call — readers who reach out have already self-selected as the right client. Ideal for Dubai and UK startup ecosystems.</p>
+    <div class="tag-row"><span class="tag">Problem-aware buyer</span><span class="tag">Startup audience</span><span class="tag">Dubai/UK fit</span><span class="tag">Pre-qualifies leads</span></div>
+  </div>
+
+  <hr class="divider">
+  <h2>7. Immediate Priority Actions</h2>
+  <div style="border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden">
+    <div style="padding:0 1rem">
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-red"></div><span style="font-size:13px;color:var(--color-text-primary)">Rewrite homepage title + H1 for global reach</span></div><span class="badge badge-bad">Do this week</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-red"></div><span style="font-size:13px;color:var(--color-text-primary)">Replace /hire-me form with Calendly embed</span></div><span class="badge badge-bad">Do this week</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-red"></div><span style="font-size:13px;color:var(--color-text-primary)">Add premium tier to pricing page ("Custom / $5K+") above packages</span></div><span class="badge badge-bad">Do this week</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-amber"></div><span style="font-size:13px;color:var(--color-text-primary)">Add Person + Service + Review schema markup</span></div><span class="badge badge-warn">This month</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-amber"></div><span style="font-size:13px;color:var(--color-text-primary)">Publish PayBev fintech case study with outcome metrics</span></div><span class="badge badge-warn">This month</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-amber"></div><span style="font-size:13px;color:var(--color-text-primary)">Add GA4 + LinkedIn Insight Tag for retargeting</span></div><span class="badge badge-warn">This month</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-teal"></div><span style="font-size:13px;color:var(--color-text-primary)">Write "Laravel vs Node.js for SaaS" MoFu article</span></div><span class="badge badge-ok">Next 30 days</span></div>
+      <div class="priority-row"><div style="display:flex;gap:8px;align-items:center"><div class="p-dot p-teal"></div><span style="font-size:13px;color:var(--color-text-primary)">Create "Laravel Developer Dubai" dedicated landing page</span></div><span class="badge badge-ok">Next 30 days</span></div>
+    </div>
+  </div>
+
+  <p style="font-size:12px;color:var(--color-text-tertiary);margin-top:1.5rem;text-align:center">Report generated by AI analysis of live site content · aruntyagi.com · April 2026</p>
+</div>

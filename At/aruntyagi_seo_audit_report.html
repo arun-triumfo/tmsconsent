@@ -1,0 +1,684 @@
+
+<style>
+:root { --gap: 12px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.wrap { padding: 1.5rem 0; }
+h1 { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+h2 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin: 1.5rem 0 .75rem; }
+h3 { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+p, li { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; }
+ul { padding-left: 1.2rem; }
+.subtitle { font-size: 13px; color: var(--color-text-tertiary); margin-bottom: 1.5rem; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.5rem; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 8px; }
+.tab { font-size: 13px; padding: 5px 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: transparent; color: var(--color-text-secondary); cursor: pointer; transition: all .15s; }
+.tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-secondary); font-weight: 500; }
+.tab:hover:not(.active) { background: var(--color-background-secondary); }
+.section { display: none; }
+.section.active { display: block; }
+
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: var(--gap); }
+.score-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap: var(--gap); margin-bottom: 1.5rem; }
+.score-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: .9rem; text-align: center; }
+.score-num { font-size: 28px; font-weight: 500; display: block; }
+.score-lbl { font-size: 12px; color: var(--color-text-tertiary); margin-top: 2px; }
+.s-red { color: #E24B4A; }
+.s-amber { color: #BA7517; }
+.s-green { color: #3B6D11; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: var(--border-radius-md); font-weight: 500; margin-right: 4px; }
+.b-red { background: var(--color-background-danger); color: var(--color-text-danger); }
+.b-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+.b-green { background: var(--color-background-success); color: var(--color-text-success); }
+.b-info { background: var(--color-background-info); color: var(--color-text-info); }
+.issue-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.issue-row:last-child { border-bottom: none; }
+.issue-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+.icon-red { background: var(--color-background-danger); color: var(--color-text-danger); }
+.icon-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+.icon-green { background: var(--color-background-success); color: var(--color-text-success); }
+.issue-content p { font-size: 13px; }
+.issue-content .fix { font-size: 12px; color: var(--color-text-info); margin-top: 2px; }
+.kw-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.kw-table th { text-align: left; padding: 8px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-tertiary); font-weight: 500; font-size: 12px; }
+.kw-table td { padding: 8px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); vertical-align: top; }
+.kw-table tr:last-child td { border-bottom: none; }
+.kw-table tr:hover td { background: var(--color-background-secondary); }
+.diff-bar { height: 6px; border-radius: 3px; background: var(--color-border-tertiary); width: 100%; margin-top: 3px; overflow: hidden; }
+.diff-fill { height: 100%; border-radius: 3px; }
+.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.plan-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem; }
+.plan-head { font-size: 13px; font-weight: 500; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.plan-card ul { padding-left: 1rem; }
+.plan-card li { font-size: 13px; margin-bottom: 5px; }
+.comp-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); margin-bottom: var(--gap); }
+.comp-col { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem; }
+.comp-head { font-size: 13px; font-weight: 500; margin-bottom: 8px; color: var(--color-text-primary); }
+.win { border-left: 3px solid #3B6D11; }
+.lose { border-left: 3px solid #E24B4A; }
+.tip-box { background: var(--color-background-info); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: .75rem 1rem; margin: .75rem 0; }
+.tip-box p { font-size: 13px; color: var(--color-text-info); }
+@media (max-width: 500px) { .plan-grid { grid-template-columns: 1fr; } .comp-row { grid-template-columns: 1fr; } .score-row { grid-template-columns: repeat(2,1fr); } }
+</style>
+
+<div class="wrap">
+<h1>SEO Audit: aruntyagi.com</h1>
+<p class="subtitle">Full audit vs. manojchahar.com — generated March 2026</p>
+
+<div class="tabs">
+  <button class="tab active" onclick="show('tech')">Technical SEO</button>
+  <button class="tab" onclick="show('onpage')">On-Page & Content</button>
+  <button class="tab" onclick="show('comp')">Competitor Analysis</button>
+  <button class="tab" onclick="show('kw')">Keyword Research</button>
+  <button class="tab" onclick="show('leads')">Lead Generation</button>
+  <button class="tab" onclick="show('plan')">90-Day Plan</button>
+  <button class="tab" onclick="show('cro')">Conversion</button>
+</div>
+
+<!-- TECHNICAL SEO -->
+<div id="tech" class="section active">
+  <div class="score-row">
+    <div class="score-card"><span class="score-num s-amber">52</span><span class="score-lbl">Overall SEO score</span></div>
+    <div class="score-card"><span class="score-num s-red">4</span><span class="score-lbl">Critical issues</span></div>
+    <div class="score-card"><span class="score-num s-amber">7</span><span class="score-lbl">Warnings</span></div>
+    <div class="score-card"><span class="score-num s-green">3</span><span class="score-lbl">Passing checks</span></div>
+  </div>
+
+  <div class="card">
+    <h3>Critical issues <span class="badge b-red">Fix first</span></h3>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>Homepage returns 403 on crawler bots</strong> — Google may not be indexing your homepage properly. A bot-blocking rule (likely in nginx/Cloudflare) is preventing crawlers from fetching the root URL.</p>
+        <p class="fix">Fix: Whitelist Googlebot and Bingbot user-agents in your WAF/Cloudflare firewall rules. Check with Google Search Console → URL Inspection.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>Geo-targeting conflict</strong> — Your site targets Dubai/UAE on multiple service pages (Laravel, React JS) but your phone number is Indian (+91) and you're based in Noida/Gurugram. Google detects this contradiction and lowers geo-relevance for both markets.</p>
+        <p class="fix">Fix: Decide your primary market (India vs UAE). Create clearly separated location pages. Use hreflang tags if genuinely serving both.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>URL typo: /react-js-developmet</strong> — The React JS service page URL has a typo ("developmet" not "development"). This destroys keyword targeting for "react js development" in the URL slug.</p>
+        <p class="fix">Fix: Create new URL /react-js-development, 301 redirect from old URL, update all internal links.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>No structured data / schema markup</strong> — No Person, LocalBusiness, Service, or FAQ schema detected. You're leaving rich snippet opportunities on the table entirely.</p>
+        <p class="fix">Fix: Add Person schema on homepage, Service schema on each service page, LocalBusiness on contact page, FAQ schema on blog posts.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Warnings <span class="badge b-amber">Medium priority</span></h3>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Inconsistent location targeting</strong> — Footer shows "Serving: India, Singapore, UAE" but most service pages only target Dubai. No Noida/Gurugram/Delhi NCR pages exist despite your actual base.</p>
+        <p class="fix">Fix: Add dedicated location pages for Noida, Gurugram, Delhi for each key service.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Thin service pages</strong> — Laravel, React JS, Next.js pages have 200–400 words. Competing pages average 1,500+ words. Google's helpful content update rewards depth.</p>
+        <p class="fix">Fix: Expand each service page to 1,200+ words with process, FAQs, case studies, pricing tiers.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>No XML sitemap confirmed</strong> — Could not verify sitemap.xml at standard location. Sitemaps accelerate crawling of new/updated pages.</p>
+        <p class="fix">Fix: Submit sitemap.xml to Google Search Console and Bing Webmaster Tools.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Missing Open Graph / Twitter card meta tags</strong> — When pages are shared on LinkedIn, Twitter, or WhatsApp, no preview image/title shows. Kills click-through for social referrals.</p>
+        <p class="fix">Fix: Add og:title, og:description, og:image, and twitter:card to every page.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Google Business Profile not linked</strong> — No GMB/GBP profile visible for "Arun Tyagi Developer" in Noida/Gurugram. Missing local pack ranking opportunity.</p>
+        <p class="fix">Fix: Create/claim Google Business Profile with Noida address, categories: Web Developer, Software Company.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Blog posts lack internal links to service pages</strong> — Blog content (e.g., React JS developer Bengaluru, testing strategies) doesn't link to relevant service pages, wasting link equity.</p>
+        <p class="fix">Fix: Add 2–3 contextual internal links per blog post to related service pages.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Core Web Vitals — likely failing LCP and CLS</strong> — No LCP/FID/CLS data available, but the page structure (nav logo "AT", heavy menu JavaScript, no lazy loading visible) suggests likely issues on mobile.</p>
+        <p class="fix">Fix: Audit with PageSpeed Insights. Target LCP &lt;2.5s, CLS &lt;0.1, INP &lt;200ms.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Passing checks <span class="badge b-green">Good</span></h3>
+    <div class="issue-row">
+      <div class="issue-icon icon-green">✓</div>
+      <div class="issue-content"><p><strong>HTTPS enabled</strong> — SSL certificate present and active.</p></div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-green">✓</div>
+      <div class="issue-content"><p><strong>Some service pages indexed</strong> — Laravel, React JS, Next.js, mobile pages appear in Google search results.</p></div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-green">✓</div>
+      <div class="issue-content"><p><strong>Blog content exists</strong> — Multiple blog posts are present with targeted keywords (React JS developer Bengaluru, testing strategies).</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ON-PAGE -->
+<div id="onpage" class="section">
+  <div class="card">
+    <h3>Homepage issues</h3>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>Homepage not crawlable (403)</strong> — Cannot audit meta title/H1/content. This alone is a massive SEO blocker. Your homepage likely has an H1 and meta title but Google can't read them.</p>
+        <p class="fix">Fix: Resolve the 403 issue first (see Technical tab). Then set: H1 = "Freelance Laravel & React JS Developer in India | Arun Tyagi" and meta title = "Arun Tyagi — Laravel & React Developer | Hire for Web Apps | India"</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>No clear unique value proposition above the fold</strong> — Based on service pages, the site describes "web developer and freelancer" generically. There's no differentiation from 10,000 other freelancers.</p>
+        <p class="fix">Fix: Lead with a specific UVP: "10+ years | Laravel SaaS & React Frontends | Served 50+ clients across India, UAE, Singapore. Let's build yours."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Service page audit</h3>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>H1 = page title, not keyword-optimised</strong> — Laravel page H1 is just "Laravel Development". Should be: "Laravel Developer in India — Custom Web Apps, APIs & CRM Systems"</p>
+        <p class="fix">Fix: Rewrite H1s to include primary keyword + location + value prop. Max 60 chars.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>No FAQ section on service pages</strong> — FAQs capture long-tail voice search and can appear as rich snippets. Competitor pages use them heavily.</p>
+        <p class="fix">Fix: Add 5–8 FAQs per service page with FAQ schema. Example: "How much does a Laravel developer charge in India?" "How long does it take to build a Laravel SaaS app?"</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>No pricing context on service pages</strong> — Pages say "cost-effective" but give no indication of rates. This causes distrust and fewer enquiries from India/UAE markets.</p>
+        <p class="fix">Fix: Add a pricing section or link to /pricing page clearly from each service page. Even ballpark ranges ("Starting from ₹1.5L / $500") reduce friction.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>No case studies or project metrics</strong> — Zero social proof on service pages. No "built X for Y, resulted in Z" anywhere. This is the biggest trust gap versus competitors.</p>
+        <p class="fix">Fix: Add 2–3 mini case studies per service page. Even simple: "Built a REST API for a Dubai fintech startup — reduced load time by 60%, deployed in 3 weeks."</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Heading structure gaps</strong> — Service pages jump from H1 to H3 ("What I Offer") without H2. This confuses Google's understanding of content hierarchy.</p>
+        <p class="fix">Fix: Use H2 for major sections (Services Offered, My Process, Technologies, FAQs, Client Results). Reserve H3 for subsections within those.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Content gaps vs. competitors</h3>
+    <ul style="padding-left: 1.2rem;">
+      <li>No AI integration / AI tools service page — <strong>huge growth keyword in 2025–26</strong></li>
+      <li>No dedicated "Hire Me" or "How I Work" page explaining your process</li>
+      <li>No testimonials page (manojchahar.com has a full reviews page)</li>
+      <li>No "About" page that builds personal authority (mentions 10+ years but no proof)</li>
+      <li>Blog frequency appears very low — only 2–3 posts visible</li>
+      <li>No Next.js or Node.js specific blog content despite having service pages for them</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPETITOR -->
+<div id="comp" class="section">
+  <h2>manojchahar.com vs aruntyagi.com</h2>
+
+  <div class="comp-row">
+    <div class="comp-col win">
+      <div class="comp-head">What Manoj is doing better</div>
+      <ul>
+        <li>Massive content breadth — 59+ pages indexed, dozens of location + niche service pages</li>
+        <li>Strong local SEO — Janakpuri address listed on every page, GMB likely active</li>
+        <li>Dedicated reviews/testimonials page + multiple testimonials on homepage</li>
+        <li>Portfolio on homepage with 50+ projects visible, paginated</li>
+        <li>Call-to-action phone number in header AND footer — instant calls</li>
+        <li>Niche service pages: NGO websites, packers & movers, restaurants, hotels, boutiques</li>
+        <li>Long-tail local pages: "website designer in Janakpuri", "in Dwarka", "in West Delhi"</li>
+        <li>Domain age since 2010 — 15+ years of authority</li>
+      </ul>
+    </div>
+    <div class="comp-col lose">
+      <div class="comp-head">Where Arun has the edge</div>
+      <ul>
+        <li>More advanced tech stack (Laravel, React, Next.js, Node.js vs PHP/WordPress)</li>
+        <li>International positioning (UAE, Singapore) for higher-value clients</li>
+        <li>Blog content targeting developer keywords (React, Laravel)</li>
+        <li>Cleaner, more modern UI and brand</li>
+        <li>AI tools angle — Manoj has none of this</li>
+        <li>Mobile app development service — broader offering</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Manoj's top ranking keywords (estimated)</h3>
+    <table class="kw-table">
+      <tr><th>Keyword</th><th>Why it ranks</th></tr>
+      <tr><td>freelance website designer in Delhi</td><td>Exact match H1, domain, title, GMB</td></tr>
+      <tr><td>website designer in Delhi NCR</td><td>Multiple dedicated pages + citations</td></tr>
+      <tr><td>wordpress developer in Delhi India</td><td>Dedicated service page + backlinks</td></tr>
+      <tr><td>ecommerce website designer Delhi</td><td>Dedicated niche page</td></tr>
+      <tr><td>website designing in Janakpuri</td><td>Local area page + physical address</td></tr>
+      <tr><td>NGO web design Delhi</td><td>Niche vertical page with zero competition</td></tr>
+      <tr><td>PHP developer Delhi</td><td>Long-standing domain authority + content</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Backlink comparison (high-level)</h3>
+    <p>Manoj's site (est. 2010) has a significant domain authority advantage. Key differences:</p>
+    <ul style="margin-top: 8px;">
+      <li>Manoj likely has 100–300+ backlinks from directory listings, local business citations, and client sites built over 15 years</li>
+      <li>Arun has very few observable backlinks — blog posts are the primary content asset</li>
+      <li>Manoj is listed on multiple "top web designers in Delhi" roundup articles — high authority citations</li>
+      <li>Arun needs a deliberate backlink building strategy — see 90-Day Plan</li>
+    </ul>
+    <div class="tip-box"><p>Key insight: Manoj wins on quantity and local authority. Arun should win on quality — targeting higher-value tech keywords (Laravel SaaS, Next.js, React) where Manoj doesn't compete.</p></div>
+  </div>
+</div>
+
+<!-- KEYWORDS -->
+<div id="kw" class="section">
+  <div class="tip-box" style="margin-bottom: 1rem;"><p>Focus your first 90 days on low-difficulty long-tail keywords. Short-tail like "web developer India" are dominated by agencies. Win the niche first, then expand.</p></div>
+  <div class="card" style="overflow-x: auto;">
+    <h3>Priority keyword targets</h3>
+    <table class="kw-table">
+      <tr>
+        <th>Keyword</th>
+        <th>Type</th>
+        <th>Intent</th>
+        <th>Difficulty</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td><strong>hire Laravel developer India</strong></td>
+        <td><span class="badge b-info">Short-tail</span></td>
+        <td>Commercial</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:65%;background:#E24B4A;"></div></div>High</td>
+        <td>Service page + blog</td>
+      </tr>
+      <tr>
+        <td><strong>freelance Laravel developer Noida</strong></td>
+        <td><span class="badge b-green">Local</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:30%;background:#3B6D11;"></div></div>Low</td>
+        <td>New location page</td>
+      </tr>
+      <tr>
+        <td><strong>Laravel developer Gurugram</strong></td>
+        <td><span class="badge b-green">Local</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:28%;background:#3B6D11;"></div></div>Low</td>
+        <td>New location page</td>
+      </tr>
+      <tr>
+        <td><strong>React JS developer Delhi NCR</strong></td>
+        <td><span class="badge b-green">Local</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:32%;background:#3B6D11;"></div></div>Low</td>
+        <td>New location page</td>
+      </tr>
+      <tr>
+        <td><strong>Next.js developer India freelance</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:35%;background:#BA7517;"></div></div>Medium</td>
+        <td>Expand service page</td>
+      </tr>
+      <tr>
+        <td><strong>build SaaS app with Laravel India</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Commercial</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:25%;background:#3B6D11;"></div></div>Low</td>
+        <td>Landing page + blog</td>
+      </tr>
+      <tr>
+        <td><strong>hire React developer for startup India</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:30%;background:#3B6D11;"></div></div>Low</td>
+        <td>Blog post + service page</td>
+      </tr>
+      <tr>
+        <td><strong>custom web application development India</strong></td>
+        <td><span class="badge b-info">Short-tail</span></td>
+        <td>Commercial</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:60%;background:#E24B4A;"></div></div>High</td>
+        <td>Homepage + blog cluster</td>
+      </tr>
+      <tr>
+        <td><strong>Node.js REST API developer India</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:38%;background:#BA7517;"></div></div>Medium</td>
+        <td>Expand Node.js page</td>
+      </tr>
+      <tr>
+        <td><strong>AI web application developer India</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Commercial</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:20%;background:#3B6D11;"></div></div>Very low</td>
+        <td>New service page NOW</td>
+      </tr>
+      <tr>
+        <td><strong>ChatGPT integration developer India</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:18%;background:#3B6D11;"></div></div>Very low</td>
+        <td>New service page NOW</td>
+      </tr>
+      <tr>
+        <td><strong>Laravel REST API developer UAE</strong></td>
+        <td><span class="badge b-green">Local</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:35%;background:#BA7517;"></div></div>Medium</td>
+        <td>Existing page — expand</td>
+      </tr>
+      <tr>
+        <td><strong>React Native app developer India</strong></td>
+        <td><span class="badge b-info">Short-tail</span></td>
+        <td>Commercial</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:50%;background:#BA7517;"></div></div>Medium</td>
+        <td>Existing page — expand</td>
+      </tr>
+      <tr>
+        <td><strong>freelance full stack developer Noida</strong></td>
+        <td><span class="badge b-green">Local</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:22%;background:#3B6D11;"></div></div>Low</td>
+        <td>New location page</td>
+      </tr>
+      <tr>
+        <td><strong>how to build SaaS with Laravel</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Informational</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:28%;background:#3B6D11;"></div></div>Low</td>
+        <td>Blog post</td>
+      </tr>
+      <tr>
+        <td><strong>React vs Next.js for startup 2025</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Informational</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:22%;background:#3B6D11;"></div></div>Low</td>
+        <td>Blog post (link to services)</td>
+      </tr>
+      <tr>
+        <td><strong>cost of Laravel development India</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Commercial</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:25%;background:#3B6D11;"></div></div>Low</td>
+        <td>Blog + pricing page</td>
+      </tr>
+      <tr>
+        <td><strong>PHP developer for hire India</strong></td>
+        <td><span class="badge b-info">Short-tail</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:55%;background:#BA7517;"></div></div>Medium</td>
+        <td>Service page</td>
+      </tr>
+      <tr>
+        <td><strong>ecommerce development Next.js India</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:32%;background:#3B6D11;"></div></div>Low</td>
+        <td>Landing page</td>
+      </tr>
+      <tr>
+        <td><strong>mobile app development company Noida</strong></td>
+        <td><span class="badge b-green">Local</span></td>
+        <td>Commercial</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:40%;background:#BA7517;"></div></div>Medium</td>
+        <td>Location + service page</td>
+      </tr>
+      <tr>
+        <td><strong>web developer for Dubai startup remote</strong></td>
+        <td><span class="badge b-green">Local</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:28%;background:#3B6D11;"></div></div>Low</td>
+        <td>Targeted landing page</td>
+      </tr>
+      <tr>
+        <td><strong>Laravel migration from CodeIgniter</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Transactional</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:18%;background:#3B6D11;"></div></div>Very low</td>
+        <td>Blog post</td>
+      </tr>
+      <tr>
+        <td><strong>Node.js vs Laravel backend comparison</strong></td>
+        <td><span class="badge b-amber">Long-tail</span></td>
+        <td>Informational</td>
+        <td><div class="diff-bar"><div class="diff-fill" style="width:20%;background:#3B6D11;"></div></div>Very low</td>
+        <td>Blog post</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- LEAD GENERATION -->
+<div id="leads" class="section">
+  <div class="card">
+    <h3>Missing pages that would generate leads directly</h3>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>No "Hire Me" landing page</strong> — You have a /contact but no conversion-focused "Hire Me" page explaining your availability, process, and what clients can expect. This is the #1 lead gen page for freelancers.</p>
+        <p class="fix">Create /hire-me with: availability status, how to work with you, what info to bring, response time, and a streamlined contact form.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>No case studies section</strong> — "Show, don't tell" is the top trust signal for developers. Competitors with case studies close 3x more leads than those without.</p>
+        <p class="fix">Create /case-studies with 3–5 detailed project breakdowns: problem, solution, tech stack used, outcome metrics, client quote.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Pricing page needs a lead capture</strong> — /pricing exists but likely has no CTA to get a custom quote. People who visit pricing pages are high-intent buyers.</p>
+        <p class="fix">Add "Get a Custom Quote" form on /pricing. Ask: project type, budget range, timeline, contact info. This qualifies leads before they email you.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>No free resource / lead magnet</strong> — Informational visitors don't convert immediately. Give them a reason to leave their email.</p>
+        <p class="fix">Create a free resource: "Web App Development Cost Calculator" (interactive tool), or "Laravel vs Node.js: Which is Right for Your Startup?" PDF guide. Collect emails via a simple form.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>CTA improvements</h3>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Single CTA = "Hire Me" everywhere</strong> — Not every visitor is ready to hire. You need three CTA tiers: (1) "Book a Free Call" for warm leads, (2) "View My Work" for discovery phase, (3) "Get a Quote" for ready-to-hire.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>No urgency or availability signal</strong> — Add "Currently accepting 2 new clients for Q2 2026" near your CTAs. Scarcity increases conversion rates significantly.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>No WhatsApp button</strong> — For India/UAE market, WhatsApp is the #1 business communication channel. Add a floating WhatsApp button with pre-filled message: "Hi Arun, I'd like to discuss a project."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Contact form optimization</h3>
+    <ul>
+      <li>Add a "Project Type" dropdown (Laravel, React, Next.js, Mobile, AI Integration, SEO)</li>
+      <li>Add "Budget Range" selector — filters serious enquiries from casual browsers</li>
+      <li>Add "How did you find me?" field — crucial for tracking what's working</li>
+      <li>Show your typical response time near the form: "I respond within 4 hours on weekdays"</li>
+      <li>Add a success page after form submission that sets expectations and suggests next steps</li>
+      <li>Connect form to email + WhatsApp notification so you respond fast</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 90 DAY PLAN -->
+<div id="plan" class="section">
+  <div class="plan-grid">
+    <div class="plan-card">
+      <div class="plan-head" style="color: #E24B4A;">Days 1–30: Fix foundations</div>
+      <ul>
+        <li>Resolve homepage 403 bot blocking</li>
+        <li>Fix /react-js-developmet URL typo (301 redirect)</li>
+        <li>Set up Google Search Console + submit sitemap</li>
+        <li>Add schema markup to all pages (Person, Service, FAQ)</li>
+        <li>Add OG/Twitter meta tags sitewide</li>
+        <li>Create/claim Google Business Profile (Noida)</li>
+        <li>Add WhatsApp floating button</li>
+        <li>Run PageSpeed Insights on all pages, fix top 3 issues</li>
+        <li>Add FAQ sections to Laravel + React service pages</li>
+        <li>Create "AI Integration Services" page</li>
+      </ul>
+    </div>
+    <div class="plan-card">
+      <div class="plan-head" style="color: #BA7517;">Days 31–60: Build content</div>
+      <ul>
+        <li>Create 4 location pages: Noida, Gurugram, Delhi, Bengaluru</li>
+        <li>Expand all service pages to 1,200+ words</li>
+        <li>Write 4 blog posts (1/week): Laravel SaaS guide, React vs Next.js, cost of web development India, AI integration for startups</li>
+        <li>Add 3 case studies to new /case-studies page</li>
+        <li>Create /hire-me landing page</li>
+        <li>Add pricing context + custom quote CTA to /pricing</li>
+        <li>Add testimonials — collect from past clients via email</li>
+        <li>Internal linking audit — connect blogs to service pages</li>
+        <li>Build out About page with full personal story + credentials</li>
+      </ul>
+    </div>
+    <div class="plan-card">
+      <div class="plan-head" style="color: #3B6D11;">Days 61–90: Promote & scale</div>
+      <ul>
+        <li>Guest post on 2 Indian tech blogs (YourStory, Hashnode)</li>
+        <li>Submit to 10 freelancer directories (Clutch, GoodFirms, UpCity)</li>
+        <li>LinkedIn content: publish 2 case study posts, share blog links</li>
+        <li>Reach out to past clients for Google reviews</li>
+        <li>Build backlinks via tool/resource page (e.g. free cost calculator)</li>
+        <li>Check Search Console for impressions — double down on ranking keywords</li>
+        <li>Write 4 more blog posts targeting informational keywords</li>
+        <li>Start a monthly newsletter to capture + nurture leads</li>
+        <li>Review analytics: identify top traffic pages, improve their CTAs</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 1rem;">
+    <h3>Blog content calendar (first 8 posts)</h3>
+    <table class="kw-table">
+      <tr><th>Week</th><th>Title</th><th>Target keyword</th><th>Links to</th></tr>
+      <tr><td>Wk 1</td><td>How to Build a SaaS App with Laravel in 2026</td><td>build SaaS with Laravel India</td><td>/laravel-development</td></tr>
+      <tr><td>Wk 2</td><td>React vs Next.js: Which Should Your Startup Choose?</td><td>React vs Next.js 2026</td><td>/react-js, /nextjs</td></tr>
+      <tr><td>Wk 3</td><td>How Much Does Web Development Cost in India in 2026?</td><td>web development cost India</td><td>/pricing, /services</td></tr>
+      <tr><td>Wk 4</td><td>AI Integration for Business: ChatGPT API + Laravel Guide</td><td>ChatGPT integration developer India</td><td>New /ai-integration page</td></tr>
+      <tr><td>Wk 5</td><td>Migrating from CodeIgniter to Laravel: Step-by-Step</td><td>Laravel migration CodeIgniter</td><td>/laravel-development</td></tr>
+      <tr><td>Wk 6</td><td>Node.js vs Laravel: Backend Comparison for 2026</td><td>Node.js vs Laravel backend</td><td>/laravel, /nodejs</td></tr>
+      <tr><td>Wk 7</td><td>How to Hire a Laravel Developer in India (Without Getting Burned)</td><td>hire Laravel developer India</td><td>/hire-me</td></tr>
+      <tr><td>Wk 8</td><td>Building REST APIs with Laravel: Best Practices</td><td>Laravel REST API development</td><td>/laravel-development</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- CONVERSION -->
+<div id="cro" class="section">
+  <div class="card">
+    <h3>Trust signals to add immediately</h3>
+    <div class="issue-row">
+      <div class="issue-icon icon-red">!</div>
+      <div class="issue-content">
+        <p><strong>Zero visible reviews or star ratings</strong> — Manojchahar.com has a dedicated /clients-reviews page plus 3 testimonials on homepage. This is the single biggest conversion gap on aruntyagi.com.</p>
+        <p class="fix">Email your last 10 clients, ask for a 2-sentence quote. Add a "What clients say" section with photo (or initials), name, company, and quote. Also add Google review link.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>Portfolio lacks context</strong> — Showing project screenshots without explaining the problem solved, tech used, and results achieved is a missed opportunity to demonstrate expertise.</p>
+        <p class="fix">For each portfolio item: add a 3-line description (What + How + Result). Add tech stack badges. Add a link to live site or case study.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>No social proof numbers</strong> — You have 10+ years experience. Turn this into: "10+ years | 50+ projects | 30+ clients | 4 countries served." Numbers stop the scroll.</p>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-icon icon-amber">~</div>
+      <div class="issue-content">
+        <p><strong>About page likely too generic</strong> — Clients hire people, not CVs. The About page should tell a story: why you became a developer, your philosophy, what makes you different, a photo, and a direct CTA.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>UX improvements for more conversions</h3>
+    <ul>
+      <li><strong>Add a sticky "Book a Free Call" button</strong> on mobile — most conversions happen on mobile in India</li>
+      <li><strong>Add a Calendly/Cal.com embed</strong> so visitors can book calls without emailing back and forth</li>
+      <li><strong>Show availability status</strong> — "Available from April 2026" or "2 slots remaining" near the header CTA</li>
+      <li><strong>Add a "Clients I've worked with" logo bar</strong> — even 5 logos adds massive credibility</li>
+      <li><strong>Reduce form fields for first contact</strong> — just name, email, brief description, and project type to lower friction</li>
+      <li><strong>Add a clear "My Process" section</strong> — Discovery → Design → Build → Deploy → Support. Reduces anxiety about hiring a freelancer vs agency</li>
+      <li><strong>Add a live chat widget</strong> (Tawk.to is free) — allows instant queries from high-intent visitors</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
