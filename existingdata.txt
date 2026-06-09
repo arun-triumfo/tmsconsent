@@ -1,0 +1,246 @@
+	
+Edit Edit
+Copy Copy
+Delete Delete
+2
+0
+Natural Products East 2026 Denver
+0
+Denver
+United State
+2026-08-18
+2026-08-20
+100.00
+0.00
+Don Taylor
+sales@naturenatesllc.com
++13609014043
+Contacted
+2026-05-08 03:23:46
+2026-05-13 16:28:20
+
+Edit Edit
+Copy Copy
+Delete Delete
+3
+0
+Shotshows 2027
+0
+Las vegas
+Us
+2027-01-19
+2027-01-22
+0.00
+0.00
+Buck buchanan
+buck.b@mirasaftey.com
+4012180433
+Contacted
+2026-05-08 11:14:48
+2026-05-13 03:12:15
+
+Edit Edit
+Copy Copy
+Delete Delete
+4
+10753
+R+T 2027
+NULL
+129
+Stuttgart
+Germany
+Need an estimate before next Tuesday. Please reach...
+2027-02-15
+2027-02-19
+12.00
+0.00
+Matt
+matt@bradleycollection.com
+07980 711420
+NULL
+Dead/Garbage
+2026-05-09 03:07:11
+2026-05-15 01:26:14
+
+Edit Edit
+Copy Copy
+Delete Delete
+5
+0
+STONEGAL  2026
+0
+check
+chcek
+2026-06-17
+2026-06-19
+72.00
+0.00
+Sara Serrano
+info@xdiamondsa.com
+(+351) 268 034 260
+Out of Budget
+2026-05-09 03:12:09
+2026-05-13 16:27:49
+
+Edit Edit
+Copy Copy
+Delete Delete
+6
+0
+Latin Tyre Expo 2026
+0
+Panama
+Panama
+2026-08-12
+2026-08-14
+18.00
+6000.00
+Waqar Aly
+waqar@taminnov8.com
++971557265141
+Out of Budget
+2026-05-11 03:50:46
+2026-05-13 03:19:09
+
+Edit Edit
+Copy Copy
+Delete Delete
+7
+10875
+ILTM CANNES 2026
+NULL
+145
+Cannes
+France
+Dear Sir/Madam,
+
+We are exhibiting at ILTM Canne...
+2026-11-30
+2026-12-03
+13.50
+NULL
+Bird Group
+ANW@BIRD.IN
++91 9810328830
+ANJALI WADHAWAN
+Dead/Garbage
+2026-05-12 17:42:56
+2026-05-13 03:17:12
+
+Edit Edit
+Copy Copy
+Delete Delete
+8
+10431
+Electronica 2026
+NULL
+915
+Munich
+Germany
+Hi, id love to take a call explain the brief and g...
+2026-11-10
+2026-11-13
+85.00
+NULL
+suntech circuits
+simhonis@gmail.com
+972548321424
+Shay Simhoni
+Contacted
+2026-05-12 17:54:31
+2026-05-13 03:10:34
+
+Edit Edit
+Copy Copy
+Delete Delete
+9
+10132
+ISPA EXPO 2026
+website
+431
+Orlando
+United States
+wating for description
+2026-03-10
+2026-03-12
+40.00
+200000.00
+SweetMyo
+laibrooke@gmail.com
++82 10-9751-9811
+Brooke Lai
+New Lead
+2026-06-09 03:50:30
+2026-06-09 03:50:30
+
+Edit Edit
+Copy Copy
+Delete Delete
+10
+10416
+Intertabac 2026
+NULL
+678
+Dortmund
+Germany
+Hello,
+
+We are preparing for InterTabac 2026 in ...
+2026-09-15
+2026-09-17
+63.00
+NULL
+carazogroup
+elena@carazogroup.com
+603422521
+Elena Bogdanova
+New Lead
+2026-06-09 04:10:33
+2026-06-09 04:10:33
+
+Edit Edit
+Copy Copy
+Delete Delete
+11
+10440
+CPHI Milan 2026
+triumfode
+409
+Fiera Milano
+Italy
+We are have a space only two side open booth and w...
+2026-10-06
+2026-10-08
+38.00
+NULL
+Advanced Microdevices Pvt. Ltd.
+vsg@mdimembrane.com
++919315601670
+Viveksheel Gupta
+New Lead
+2026-06-09 04:13:35
+2026-06-09 04:13:35
+
+Edit Edit
+Copy Copy
+Delete Delete
+12
+10870
+ISPO 2026
+tde
+431
+Amsterdam
+Netherlands
+waiting
+2026-11-03
+2026-11-05
+40.00
+20000.00
+SweetMyo
+laibrooke@gmail.com
++82 10-9751-9811
+Brooke Lai
+New Lead
+2026-06-09 04:15:35
+2026-06-09 04:15:35
+With selected:  Check all With selected:    
