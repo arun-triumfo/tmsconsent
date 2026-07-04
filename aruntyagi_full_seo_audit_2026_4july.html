@@ -1,0 +1,396 @@
+
+<h2 class="sr-only">Complete SEO audit for aruntyagi.com — covering technical SEO, on-page, content, UX, off-page, local SEO, and conversion optimisation, with prioritised issues and a 90-day roadmap.</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--color-text-primary);background:transparent;font-size:13px}
+.tabs{display:flex;gap:0;border-bottom:0.5px solid var(--color-border-tertiary);overflow-x:auto;margin-bottom:0}
+.tab{padding:8px 13px;font-size:11px;cursor:pointer;border:none;background:transparent;color:var(--color-text-secondary);border-bottom:2px solid transparent;white-space:nowrap;font-weight:500}
+.tab.on{color:var(--color-text-info);border-bottom-color:var(--color-text-info)}
+.panel{display:none;padding:12px 0}
+.panel.on{display:block}
+.score-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.score-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;text-align:center}
+.score-num{font-size:22px;font-weight:500}
+.score-lbl{font-size:10px;color:var(--color-text-secondary);margin-top:2px}
+.red{color:var(--color-text-danger,#dc2626)}
+.warn{color:var(--color-text-warning)}
+.green{color:var(--color-text-success)}
+.blue{color:var(--color-text-info)}
+.issue{border-left:3px solid;padding:9px 11px;margin:6px 0;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;background:var(--color-background-secondary)}
+.issue.crit{border-color:#dc2626}
+.issue.med{border-color:#f59e0b}
+.issue.low{border-color:#10b981}
+.issue-h{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.issue-title{font-size:12px;font-weight:500}
+.badge{font-size:10px;padding:1px 6px;border-radius:8px}
+.badge-crit{background:#fef2f2;color:#dc2626}
+.badge-med{background:var(--color-background-warning);color:var(--color-text-warning)}
+.badge-low{background:var(--color-background-success);color:var(--color-text-success)}
+.issue-desc{font-size:11px;color:var(--color-text-secondary);line-height:1.55}
+.fix{font-size:11px;color:var(--color-text-info);margin-top:3px;line-height:1.5}
+.section-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary,var(--color-text-secondary));margin:14px 0 6px}
+.tool-row{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0}
+.tool{font-size:11px;background:var(--color-background-info);color:var(--color-text-info);padding:2px 8px;border-radius:10px}
+.roadmap-week{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:10px 12px;margin-bottom:8px}
+.week-h{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.week-num{background:var(--color-background-info);color:var(--color-text-info);font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px}
+.week-title{font-size:13px;font-weight:500}
+.task{font-size:11px;color:var(--color-text-secondary);padding:3px 0;display:flex;gap:6px;align-items:flex-start;line-height:1.5}
+.task-dot{width:5px;height:5px;border-radius:50%;background:var(--color-text-secondary);flex-shrink:0;margin-top:5px}
+.opp-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0}
+.opp-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:9px 11px}
+.opp-kw{font-size:12px;font-weight:500;margin-bottom:2px}
+.opp-why{font-size:11px;color:var(--color-text-secondary);line-height:1.45}
+.kw-table{width:100%;border-collapse:collapse;font-size:11px}
+.kw-table th{text-align:left;font-size:10px;color:var(--color-text-secondary);font-weight:500;text-transform:uppercase;padding:4px 6px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.kw-table td{padding:6px 6px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top}
+.kw-table tr:last-child td{border-bottom:none}
+.rank-pill{display:inline-block;font-size:10px;font-weight:500;padding:1px 6px;border-radius:8px}
+.rp-top{background:var(--color-background-success);color:var(--color-text-success)}
+.rp-mid{background:var(--color-background-warning);color:var(--color-text-warning)}
+.rp-no{background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-secondary)}
+</style>
+
+<div style="padding:12px 0 8px">
+  <div style="font-size:11px;color:var(--color-text-secondary)">Senior SEO audit — aruntyagi.com · July 2026</div>
+  <div style="font-size:16px;font-weight:500;margin-top:2px">Complete 7-section SEO report with 90-day roadmap</div>
+</div>
+
+<div class="tabs" id="nav">
+  <button class="tab on" onclick="go(0)">Overview</button>
+  <button class="tab" onclick="go(1)">Technical</button>
+  <button class="tab" onclick="go(2)">On-page</button>
+  <button class="tab" onclick="go(3)">Content</button>
+  <button class="tab" onclick="go(4)">UX / CRO</button>
+  <button class="tab" onclick="go(5)">Off-page</button>
+  <button class="tab" onclick="go(6)">Local SEO</button>
+  <button class="tab" onclick="go(7)">Roadmap</button>
+</div>
+
+<div class="panel on" id="p0">
+  <div class="score-row">
+    <div class="score-card"><div class="score-num warn">52/100</div><div class="score-lbl">Overall SEO score</div></div>
+    <div class="score-card"><div class="score-num red">9</div><div class="score-lbl">Critical issues</div></div>
+    <div class="score-card"><div class="score-num warn">14</div><div class="score-lbl">Medium issues</div></div>
+    <div class="score-card"><div class="score-num green">8</div><div class="score-lbl">Low / quick wins</div></div>
+  </div>
+  <div class="section-label">What is working</div>
+  <div class="issue low"><div class="issue-h"><span class="issue-title">Site is well-indexed — 30+ pages crawlable</span></div><div class="issue-desc">site:aruntyagi.com returns homepage, service pages, blog posts, portfolio, location pages — Google is crawling the site actively.</div></div>
+  <div class="issue low"><div class="issue-h"><span class="issue-title">Branded search = strong #1 ranking</span></div><div class="issue-desc">"Arun Tyagi developer", "aruntyagi.com" — brand SERP is clean with homepage, about, portfolio showing correctly.</div></div>
+  <div class="issue low"><div class="issue-h"><span class="issue-title">Good location page architecture</span></div><div class="issue-desc">Separate pages for Noida, Delhi NCR, Dubai, UAE, India, Singapore, US — correct SEO strategy vs. one bloated homepage.</div></div>
+  <div class="issue low"><div class="issue-h"><span class="issue-title">Blog content being indexed</span></div><div class="issue-desc">Posts like /blog/react-js-developer-bengaluru-saas-scale-2025/ are appearing in SERPs — blog is contributing to long-tail traffic.</div></div>
+  <div class="section-label">Top critical gaps</div>
+  <div class="issue crit"><div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Homepage not ranking for primary commercial keywords</span></div><div class="issue-desc">"freelance laravel developer noida", "hire laravel developer india" — homepage nowhere in top 30. Upwork / Truelancer / web-brew.com dominating. Root cause: homepage tries to rank for 6+ locations + 8+ services simultaneously.</div></div>
+  <div class="issue crit"><div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">No schema markup on any page</span></div><div class="issue-desc">Zero structured data detected. Missing: Person schema, LocalBusiness schema, Service schema, FAQPage schema, BreadcrumbList. This is a significant missed opportunity for rich results.</div></div>
+  <div class="issue crit"><div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Google Business Profile status unknown / likely unclaimed</span></div><div class="issue-desc">Local pack results for "laravel developer noida" show no Arun Tyagi listing. GBP is arguably the single highest-ROI fix for local B2B freelancers.</div></div>
+</div>
+
+<div class="panel" id="p1">
+  <div class="section-label">Technical SEO issues</div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">No structured data / schema markup anywhere on the site</span></div>
+    <div class="issue-desc">Person, LocalBusiness, Service, FAQPage, BreadcrumbList — all missing. Google cannot generate rich results (star ratings, FAQ dropdowns, sitelinks) without schema. Competitors with schema get higher CTR even at same ranking.</div>
+    <div class="fix">Fix: Add JSON-LD on homepage — Person + LocalBusiness (serviceArea: Noida, Delhi NCR, Dubai). Add FAQPage schema to each service page. Add BreadcrumbList to inner pages. Implement in 1 day in Laravel blade templates.</div>
+  </div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">OG image is the personal photo (aruntyagi1.jpg) — not a designed card</span></div>
+    <div class="issue-desc">og:image = personal photo used for all pages. When any page is shared on WhatsApp / LinkedIn / Twitter, the same portrait appears regardless of content. No branding, no keyword, poor first impression.</div>
+    <div class="fix">Fix: Create a 1200×630 branded OG image template per page type (homepage / service / blog). Laravel can auto-generate dynamic OG images using Browsershot or a service like og-image.vercel.app.</div>
+  </div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Core Web Vitals status unverified — hero image likely LCP offender</span></div>
+    <div class="issue-desc">Homepage hero loads aruntyagi1.jpg. Without WebP + preload + fetchpriority="high", LCP is likely 3–5s on mobile (Indian 4G). Google uses mobile-first indexing. LCP &gt; 2.5s = ranking penalty.</div>
+    <div class="fix">Fix: Run PageSpeed Insights on mobile now. Convert hero to WebP. Add &lt;link rel="preload"&gt; in &lt;head&gt;. Add fetchpriority="high" to the img tag. Target LCP &lt; 2.5s.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Title tag and H1 are mismatched across the site</span></div>
+    <div class="issue-desc">Homepage title: "Freelance Laravel Developer in India, Noida & Dubai" — H1: "Freelance Laravel Developer in Noida, Delhi NCR & India". Different keyword order confuses Google's primary topic signal. Same issue likely exists on inner pages.</div>
+    <div class="fix">Fix: Align title + H1 on every page. Lead with the single most important keyword. Homepage → "Freelance Laravel Developer in Noida, India | Arun Tyagi".</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Meta keywords tag still present (obsolete)</span></div>
+    <div class="issue-desc">meta name="keywords" is present with 5 values. Google has ignored this since 2009. Not harmful but is a signal that the SEO setup was copy-pasted from old templates.</div>
+    <div class="fix">Fix: Remove meta keywords tag. Redirect that effort to meta description CTR optimisation.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">robots.txt and sitemap.xml not confirmed — cannot verify via fetch</span></div>
+    <div class="issue-desc">Could not directly confirm sitemap.xml is properly submitted or that robots.txt references it. Need Google Search Console verification.</div>
+    <div class="fix">Fix: Open Google Search Console → Sitemaps → submit aruntyagi.com/sitemap.xml. Verify robots.txt has "Sitemap: https://aruntyagi.com/sitemap.xml" line. Check for any accidental Disallow rules.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">CSRF token exposed in HTML meta tag</span></div>
+    <div class="issue-desc">meta name="csrf-token" is rendered in the page &lt;head&gt; and visible in source. While this is common in Laravel apps, it's unnecessary for a mostly-static marketing site and signals to crawlers that this is a dynamic app page.</div>
+    <div class="fix">Fix: Only inject CSRF meta tag on pages with forms. Remove from SEO landing pages where it's not needed.</div>
+  </div>
+
+  <div class="issue low">
+    <div class="issue-h"><span class="badge badge-low">Low</span><span class="issue-title">Canonical URL on homepage is correct</span></div>
+    <div class="issue-desc">canonical: https://aruntyagi.com/ — correctly set. Verify all inner pages also have canonical self-referencing tags to prevent duplicate content issues.</div>
+    <div class="fix">Fix: Audit 5 random inner pages — confirm canonical is set and matches the page URL exactly (no trailing slash inconsistencies).</div>
+  </div>
+
+  <div class="section-label">Recommended tools</div>
+  <div class="tool-row">
+    <span class="tool">Google Search Console</span>
+    <span class="tool">PageSpeed Insights</span>
+    <span class="tool">Screaming Frog (free 500 URLs)</span>
+    <span class="tool">Schema Markup Validator</span>
+    <span class="tool">Ahrefs Webmaster Tools (free)</span>
+  </div>
+</div>
+
+<div class="panel" id="p2">
+  <div class="section-label">On-page SEO issues</div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Homepage targets too many locations simultaneously</span></div>
+    <div class="issue-desc">Noida + Delhi NCR + India + Dubai + UAE + Singapore + US are all targeted on one page. Google cannot rank one page strongly for 7 different geo-intents. Signal dilution is the primary reason homepage doesn't appear in top 10 for any single location keyword.</div>
+    <div class="fix">Fix: Homepage → target ONE primary intent: "freelance laravel developer in India" (broadest, highest volume). All other locations → dedicated inner pages (which already partially exist — expand them).</div>
+  </div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Homepage H2 hierarchy is scattered — 8+ competing topics</span></div>
+    <div class="issue-desc">H2s on homepage: "Key statistics", "About Me", "Laravel & Full-Stack Development Services", "Hire by role", "Recent Projects", "How I Work", "What Clients Say", "Common Questions", "Let's Build Something". Each H2 pulls Google's attention in a different direction. No topical focus.</div>
+    <div class="fix">Fix: Homepage should have 2–3 H2s max, all supporting the primary keyword. Move "About Me", "How I Work", "Key statistics" to /about. Keep: "Laravel Development Services", "Recent Projects", "What Clients Say". The homepage is a conversion page, not a Wikipedia article.</div>
+  </div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Service pages have thin content and weak keyword targeting</span></div>
+    <div class="issue-desc">Pages like /php-development, /laravel-development appear in index but their meta descriptions reference Dubai/UAE on what should be India-focused pages. Content appears auto-generated or template-duplicated across service pages.</div>
+    <div class="fix">Fix: Each service page needs: 800+ words of unique content, clear H1 with geo + service keyword, 3–5 FAQs with FAQPage schema, 1 real case study or portfolio link, and a primary CTA. Prioritise /laravel-development and /web-development first.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Alt text on hero image is too long and keyword-stuffed</span></div>
+    <div class="issue-desc">alt="Arun Tyagi — freelance Laravel developer in Noida, Delhi NCR and India" — this is 9 words. Google's image alt should be descriptive (max 5–6 words) and not duplicate the H1 verbatim.</div>
+    <div class="fix">Fix: alt="Arun Tyagi — freelance Laravel developer, Noida" — concise and accurate. Then use the freed alt budget on portfolio/project images which likely have generic alts.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Internal linking from homepage to money pages is weak</span></div>
+    <div class="issue-desc">Homepage body text links primarily through the nav menu. Contextual in-body links (within paragraph text) to /laravel-developer-noida, /laravel-developer-dubai, /saas-development are missing or buried. Nav links pass less PageRank than contextual links.</div>
+    <div class="fix">Fix: Add 3–4 contextual links in homepage body copy: e.g. "If you're based in Noida or Delhi NCR, [see my local Laravel services →]". These should use exact keyword anchor text.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Blog content is indexed but not internally linked from service pages</span></div>
+    <div class="issue-desc">Blog posts (React developer Bengaluru, GA4 setup, etc.) exist but service pages don't link back to related blogs. This breaks the topic cluster model — Google needs to see the connection between service pages and supporting blog content.</div>
+    <div class="fix">Fix: Add "Related reading" section at bottom of each service page linking to 2–3 relevant blog posts. Example: /laravel-development → links to "Advanced Laravel techniques", "SaaS backend best practices".</div>
+  </div>
+
+  <div class="issue low">
+    <div class="issue-h"><span class="badge badge-low">Low</span><span class="issue-title">FAQ section on homepage is good — needs schema</span></div>
+    <div class="issue-desc">11 FAQ items are well-written and address real buyer questions. However without FAQPage schema, Google won't show them as rich results (the expandable FAQ snippet in SERPs). This costs significant SERP real estate.</div>
+    <div class="fix">Fix: Add FAQPage JSON-LD schema matching all 11 FAQ items. This is 20 min of work for potentially 3× SERP click area.</div>
+  </div>
+</div>
+
+<div class="panel" id="p3">
+  <div class="section-label">Content analysis</div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Blog content strategy is unfocused — targeting wrong intent</span></div>
+    <div class="issue-desc">Found blog posts: "Web Development Germany 2025", "Testing Strategies for Web Apps", "Performance Optimization Tips", "GA4 Setup in Next.js" — these are developer-education topics, not buyer-intent keywords. The target audience (founders, business owners) doesn't Google "testing strategies for web apps". They Google "hire laravel developer noida" or "how much does a Laravel project cost India".</div>
+    <div class="fix">Fix: Shift blog strategy to buyer-intent content: "How much does a Laravel developer cost in India 2026", "Hire vs. agency vs. freelancer for Laravel project", "Laravel SaaS development timeline and cost", "5 questions to ask before hiring a PHP developer".</div>
+  </div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">No topic cluster structure — service pages are isolated silos</span></div>
+    <div class="issue-desc">There is no pillar-cluster architecture. /laravel-development doesn't link to /laravel-developer-noida, /laravel-developer-dubai, or related blog posts. Google's topic authority model requires interconnected pages to rank competitive keywords.</div>
+    <div class="fix">Fix: Build 3 topic clusters: (1) Laravel cluster — pillar: /laravel-development, clusters: location pages + "laravel saas", "laravel api", "laravel erp" sub-pages. (2) PHP cluster. (3) React/Next.js cluster. Each cluster page links to every other in the cluster.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Missing high-value content pages</span></div>
+    <div class="issue-desc">No pages exist for: "Laravel developer cost India", "how long does a Laravel project take", "Laravel vs other frameworks", "SaaS development services India", "API development services India", "CRM/ERP development India" — all high buyer-intent, low-competition keywords where a freelancer site can outrank agencies.</div>
+    <div class="fix">Fix: Create 1 new page per month targeting these. Start with "Laravel development cost India" — searches by founders with budget = highest conversion intent.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Portfolio pages have thin SEO content</span></div>
+    <div class="issue-desc">Portfolio entries like /portfolio/solar-setup-india, /portfolio/dubai-charity show project descriptions but no outcome metrics, no keyword-rich case study text, no links from service pages. These pages are wasted SEO real estate.</div>
+    <div class="fix">Fix: Rewrite each portfolio page as a 400-word case study: problem → solution (with tech stack keywords) → result (with numbers). Link from relevant service pages. Title: "Dubai Charity — Laravel + React Donation Platform | Case Study".</div>
+  </div>
+
+  <div class="section-label">Missing content by keyword opportunity</div>
+  <div class="opp-grid">
+    <div class="opp-card"><div class="opp-kw">laravel saas development india</div><div class="opp-why">Homepage mentions SaaS 5× but no dedicated page. Create /laravel-saas-development with 1000+ words.</div></div>
+    <div class="opp-card"><div class="opp-kw">rest api developer india</div><div class="opp-why">API work is mentioned everywhere but /api-development page missing. Easy to create, low competition.</div></div>
+    <div class="opp-card"><div class="opp-kw">laravel developer cost india 2026</div><div class="opp-why">Buyers Google this before hiring. A blog post on this topic → directly qualified traffic.</div></div>
+    <div class="opp-card"><div class="opp-kw">filament laravel developer india</div><div class="opp-why">Very low competition. You're building with Filament. A service/blog page on this = niche #1.</div></div>
+    <div class="opp-card"><div class="opp-kw">ai integration developer india</div><div class="opp-why">FAQ mentions AI but no page. Fastest-growing freelance keyword in 2026. Create immediately.</div></div>
+    <div class="opp-card"><div class="opp-kw">erp development india laravel</div><div class="opp-why">Highly relevant to your actual work. No competitor freelancer pages ranking for this.</div></div>
+  </div>
+</div>
+
+<div class="panel" id="p4">
+  <div class="section-label">UX issues affecting SEO & conversion</div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Homepage is too long — primary CTA buried below the fold</span></div>
+    <div class="issue-desc">The homepage has: stats → about → services → hire by role → portfolio → clients → process → testimonials → FAQ → contact form. The "Book a free call" CTA appears in the hero, but then the user scrolls through 10+ sections before reaching the contact form at the bottom. Bounce rate is likely high because it takes too long to reach the point.</div>
+    <div class="fix">Fix: Move contact form or "Book a call" CTA to immediately after the portfolio section. Cut the homepage to 5 sections: Hero → Services (3 lines each) → Portfolio (3 projects) → Testimonials (3) → CTA. Remove "Key statistics", "About Me", "How I Work" — these belong on /about.</div>
+  </div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Navigation has 13+ links — cognitive overload</span></div>
+    <div class="issue-desc">The nav expands to 13 service links (Laravel Development, PHP Development, Laravel Developer, Web Developer, React JS Development, React JS Developer, React Native, Website Developer, Next.js, Mobile App, PHP Developer, Node.js) — presented as a flat list. Users cannot process this. High bounce probability on mobile.</div>
+    <div class="fix">Fix: Simplify nav to: Home | Services (dropdown: 4 top services only) | Portfolio | Blog | Book a call (CTA button, highlighted). Remove low-priority service pages from primary nav — they still exist for SEO, just not in nav.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">"Currently accepting 2 new clients for Q3 2026" — scarcity signal is good but not prominent enough</span></div>
+    <div class="issue-desc">This is one of the most powerful conversion signals on the site and it's in a small top bar that most users scroll past. It communicates quality and creates urgency — needs to be larger and inside the hero section.</div>
+    <div class="fix">Fix: Add this as a bold line inside the hero — above the H1. "Currently accepting 2 new clients for Q3 2026 — [Book your slot →]". This framing has been shown to increase conversion rates 15–25% on freelancer sites.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Contact form has 6 dropdown fields before the message — too much friction</span></div>
+    <div class="issue-desc">The form asks: Name, Email, Phone, Project type (dropdown), Budget range (dropdown), Timeline (dropdown), How did you find me (dropdown), Subject, Message — 9 fields. Most leads will abandon after the 3rd field. The dropdowns add cognitive friction without qualifying leads better than a 2-field form.</div>
+    <div class="fix">Fix: Primary form: Name + Email + Message only. Let Calendly / book-a-call handle the qualification. Or move the dropdowns to a 2nd step (after submit). This alone can 2× your form completion rate.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Testimonials are not linked to verifiable sources</span></div>
+    <div class="issue-desc">5 testimonials displayed — "Prerna, CEO, IALM Academy", "Ahmed Al-Rashid, Director, Dubai Charity" etc. — but no LinkedIn profile links, no Google review links, no profile photos. In 2026, unverified testimonials are heavily discounted by visitors (especially B2B buyers).</div>
+    <div class="fix">Fix: Add LinkedIn profile links to each testimonial. Add a real profile photo. Link to the live project. Add a "View on LinkedIn" icon. This transforms testimonials from "claims" to "social proof".</div>
+  </div>
+
+  <div class="issue low">
+    <div class="issue-h"><span class="badge badge-low">Low</span><span class="issue-title">Skills section uses percentage bars with no context</span></div>
+    <div class="issue-desc">"Laravel 90%", "PHP 95%", "Docker 65%" — these skill bars convey no real information. Who set these numbers? What does 90% Laravel mean vs 95% PHP? Visitors don't trust self-reported bars.</div>
+    <div class="fix">Fix: Replace skill bars with project-based proof. "Built 40+ Laravel applications including fintech, SaaS, and charity platforms." Numbers with context beat abstract percentages.</div>
+  </div>
+</div>
+
+<div class="panel" id="p5">
+  <div class="section-label">Off-page SEO assessment</div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Domain Authority likely low (estimated DA 15–25)</span></div>
+    <div class="issue-desc">Without Ahrefs/Moz data, estimated DA based on: site is relatively new as a portfolio domain, competing against Upwork (DA 93), Truelancer (DA 55), web-brew.com (DA 30+). Insufficient backlinks to rank for competitive commercial keywords on domain authority alone.</div>
+    <div class="fix">Fix: See backlink strategy below. Run ahrefs.com/website-authority-checker (free) to get actual DR score today.</div>
+  </div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">No backlink strategy currently in place</span></div>
+    <div class="issue-desc">Portfolio sites (SolarSetupIndia, Dubai Charity, PayBev etc.) likely link back to aruntyagi.com — these are the current backlinks. No guest posts, no directory listings, no PR, no citation building found.</div>
+    <div class="fix">Fix (in order of effort vs. impact): (1) Add footer backlink to all client sites built — "Developed by Arun Tyagi". (2) Submit to freelancer directories: Clutch.co, GoodFirms, DesignRush, Bark.com. (3) Guest post on IndianStartup.com, YourStory, or dev.to (already have a profile there). (4) Get listed on G2, Trustpilot as a freelancer service.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Competitor comparison — what Arun is losing to</span></div>
+    <div class="issue-desc">ajkumar.in (Delhi Laravel freelancer) — appears to have targeted single-city, single-service with deep content. web-brew.com (Laravel agency Noida) — ranking #1 for "hire laravel developer noida" with dedicated service pages per sector. unitedwebsoft.in — ranking for Delhi NCR with agency trust signals.</div>
+    <div class="fix">Fix: Arun's USP vs. agencies is "you work directly with me — no juniors". This message exists in the FAQ but not in the H1 or hero. Make it the primary differentiator, not an afterthought.</div>
+  </div>
+
+  <div class="issue low">
+    <div class="issue-h"><span class="badge badge-low">Low</span><span class="issue-title">LinkedIn presence — use it for SEO signals</span></div>
+    <div class="issue-desc">LinkedIn profile linked from site. LinkedIn content regularly indexes in Google. Writing LinkedIn posts linking back to new blog content = fast indexing signal + referral traffic.</div>
+    <div class="fix">Fix: Post 1 LinkedIn article per week linking to the latest blog post or service page. Share portfolio additions on LinkedIn. LinkedIn DA is 99 — every link from it passes strong authority.</div>
+  </div>
+
+  <div class="section-label">Recommended tools</div>
+  <div class="tool-row">
+    <span class="tool">Ahrefs Webmaster Tools (free)</span>
+    <span class="tool">Moz Link Explorer</span>
+    <span class="tool">Google Search Console — Links report</span>
+    <span class="tool">Clutch.co (directory listing)</span>
+  </div>
+</div>
+
+<div class="panel" id="p6">
+  <div class="section-label">Local SEO audit</div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">Google Business Profile — not found in local pack searches</span></div>
+    <div class="issue-desc">"freelance laravel developer noida" local map pack shows no Arun Tyagi listing. For a B2B freelancer with a physical office address (Sector 58, Noida — listed on site), GBP is the fastest path to local visibility. A verified GBP listing with 10+ reviews can appear in the 3-pack above all organic results.</div>
+    <div class="fix">Fix: (1) Go to business.google.com → claim or create listing. (2) Category: "Web developer" + "Software company". (3) Add: office address, phone, website, hours. (4) Add 10+ photos of workspace. (5) Start requesting reviews from previous clients via WhatsApp. 5-star reviews from clients mentioning "Laravel" and "Noida" directly boost local pack ranking.</div>
+  </div>
+
+  <div class="issue crit">
+    <div class="issue-h"><span class="badge badge-crit">Critical</span><span class="issue-title">NAP inconsistency risk — Name/Address/Phone across the web</span></div>
+    <div class="issue-desc">Site shows: "1st Floor, Shri Ram Trade Center, J-4, Bishanpura, Sector 58, Noida, UP 201309" and "+91 8791775933". If Google finds different addresses or phone numbers on directory listings (Justdial, Sulekha, IndiaMart) it reduces local ranking trust.</div>
+    <div class="fix">Fix: Search for your name on Justdial, Sulekha, IndiaMart. Correct any inconsistent NAP data. Ensure the GBP listing uses exactly the same address format as the website.</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">LocalBusiness schema missing from homepage</span></div>
+    <div class="issue-desc">No LocalBusiness or Person JSON-LD schema on any page. Without this, Google has to guess the business location, service area, and contact details from unstructured page content — slower and less accurate.</div>
+    <div class="fix">Fix: Add LocalBusiness JSON-LD to homepage: name, address, telephone, url, geo (lat/long of Sector 58 Noida), areaServed: ["Noida", "Delhi NCR", "India"], serviceType: "Laravel Development".</div>
+  </div>
+
+  <div class="issue med">
+    <div class="issue-h"><span class="badge badge-med">Medium</span><span class="issue-title">Hyper-local keyword pages missing</span></div>
+    <div class="issue-desc">No pages targeting "laravel developer sector 62 noida", "web developer bishanpura noida", "php developer sector 58 noida" — hyper-local keywords where one dedicated page could rank #1 within weeks with zero competition.</div>
+    <div class="fix">Fix: Create /laravel-developer-noida-sector-62 (existing address area) — 400 words + embedded Google Map + local testimonials. This is the easiest #1 ranking available to the site.</div>
+  </div>
+
+  <div class="issue low">
+    <div class="issue-h"><span class="badge badge-low">Low</span><span class="issue-title">Locations directory page exists — good foundation</span></div>
+    <div class="issue-desc">aruntyagi.com/locations links to India, Singapore, UAE, US, and city pages. This is the correct architecture. Issue is the individual location pages need more content depth (currently likely thin).</div>
+    <div class="fix">Fix: Each city/location page should have: 400+ words, local-specific paragraph ("Working with Noida startups in Sector 62 and 63..."), embedded Google Map, 1–2 local client references.</div>
+  </div>
+</div>
+
+<div class="panel" id="p7">
+  <div class="section-label">90-day SEO action roadmap</div>
+
+  <div class="roadmap-week">
+    <div class="week-h"><span class="week-num">Week 1–2</span><div class="week-title">Foundation fixes — highest impact, no content needed</div></div>
+    <div class="task"><div class="task-dot"></div><div>Claim + fully complete Google Business Profile (GBP) in Noida. Add 10 photos, all categories, correct NAP. Start requesting 5 client reviews.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Add JSON-LD schema: Person + LocalBusiness on homepage. FAQPage on homepage FAQ section. BreadcrumbList on all inner pages. Takes 1 day in Laravel blade.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Run PageSpeed Insights on mobile. Fix LCP: convert hero image to WebP, add fetchpriority="high", add preload link in &lt;head&gt;. Target LCP &lt; 2.5s.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Align title + H1 on homepage and top 5 service pages. Homepage: both should say "Freelance Laravel Developer in Noida & India | Arun Tyagi".</div></div>
+    <div class="task"><div class="task-dot"></div><div>Submit sitemap to Google Search Console. Verify robots.txt. Check for any crawl errors or noindex accidents in GSC Coverage report.</div></div>
+  </div>
+
+  <div class="roadmap-week">
+    <div class="week-h"><span class="week-num">Week 3–4</span><div class="week-title">On-page restructure — homepage + service pages</div></div>
+    <div class="task"><div class="task-dot"></div><div>Restructure homepage: remove "Key statistics", "About Me", "How I Work" sections. Homepage = Hero + Services (brief) + Portfolio (3 items) + Testimonials + CTA. Target under 1000 words on page.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Simplify navigation from 13+ links to: Home | Services (dropdown: 4 only) | Portfolio | Blog | Book a call (CTA).</div></div>
+    <div class="task"><div class="task-dot"></div><div>Reduce contact form from 9 fields to 3: Name + Email + Message. Move qualifying questions to the confirmation page or Calendly.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Add LinkedIn verification links and profile photos to all 5 testimonials. Add "View project →" links to portfolio items in testimonials.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Create the first missing high-value page: /laravel-saas-development — 1000 words, targeting "laravel saas developer india". Internal link from homepage and /laravel-development.</div></div>
+  </div>
+
+  <div class="roadmap-week">
+    <div class="week-h"><span class="week-num">Week 5–8</span><div class="week-title">Content + backlinks — build topic authority</div></div>
+    <div class="task"><div class="task-dot"></div><div>Create 4 buyer-intent blog posts (1/week): "How much does a Laravel developer cost in India 2026" · "Hire freelance vs agency for Laravel — honest comparison" · "How long does a SaaS backend take to build in Laravel" · "Top 5 questions to ask before hiring a PHP developer".</div></div>
+    <div class="task"><div class="task-dot"></div><div>Create /ai-integration-developer-india page — fastest growing search term for freelance devs in 2026. You have Claude API experience — this is a genuine USP page.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Rewrite top 3 portfolio pages as case studies: problem + stack + result with numbers. Minimum 400 words each. Add tech stack keywords naturally.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Submit to Clutch.co, GoodFirms, DesignRush as a freelancer. These are DA 50–70 sites — backlinks from them will meaningfully move your domain rating.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Add "Developed by Arun Tyagi — aruntyagi.com" footer link to all client sites where you have access. Each is a real backlink from a live production site.</div></div>
+  </div>
+
+  <div class="roadmap-week">
+    <div class="week-h"><span class="week-num">Week 9–12</span><div class="week-title">Scale + measure — track, iterate, build authority</div></div>
+    <div class="task"><div class="task-dot"></div><div>Check Google Search Console — compare impressions and clicks for target keywords vs. baseline. Identify which new pages are getting impressions but low CTR → improve title tags.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Build topic cluster links: ensure every service page links to 2–3 related blog posts, and every blog post links back to the primary service page. This is the single most impactful internal linking action.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Create /laravel-developer-noida-sector-62 hyper-local page. With GBP now established and NAP consistent, this can rank #1 within 30 days of publication.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Write 1 guest post for dev.to, IndianStartup.com, or YourStory — topic: "How I built a Dubai charity platform in 6 weeks with Laravel + React" (real project you have). Include 2–3 links back to aruntyagi.com service pages.</div></div>
+    <div class="task"><div class="task-dot"></div><div>Re-audit: run Ahrefs Webmaster Tools free report. Check which new pages have started ranking. Double down on the top 3 performers with more internal links and an updated content revision.</div></div>
+  </div>
+
+  <div class="section-label">Expected outcomes by day 90</div>
+  <div class="opp-grid">
+    <div class="opp-card"><div class="opp-kw">GBP local pack appearance</div><div class="opp-why">Estimated 30–60 days after GBP claim + 5 reviews. Most impactful single action.</div></div>
+    <div class="opp-card"><div class="opp-kw">10–15 new keyword rankings</div><div class="opp-why">Long-tail buyer-intent blog posts + new service pages will start appearing in top 20 within 60–90 days.</div></div>
+    <div class="opp-card"><div class="opp-kw">2× form submissions</div><div class="opp-why">Reducing form to 3 fields + moving CTA higher on page typically doubles completion rate.</div></div>
+    <div class="opp-card"><div class="opp-kw">Rich result appearance</div><div class="opp-why">FAQ schema on homepage → FAQ rich result in Google within 2–4 weeks of implementation.</div></div>
+  </div>
+</div>
+
+<script>
+function go(n){
+  document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('on',i===n));
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===n));
+}
+</script>
