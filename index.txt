@@ -10,3 +10,68 @@ Stack@Triumfo1
 
 mobel
 Mobe@5#lRE
+
+
+
+Direct printing setup (receipts + labels — no print preview)
+
+The POS will send print jobs automatically when a sale is completed and when labels are ready. To remove the Chrome print preview window on your till computer, please set this up once on each POS PC.
+
+You have two printers, so you need two Chrome shortcuts (one for receipts, one for labels).
+
+A. One-time preparation
+
+Install both printers in Windows:
+Thermal receipt printer (80 mm)
+XP-420B label printer (40 × 30 mm)
+Close all Chrome windows completely.
+B. Create Shortcut 1 — Checkout / Receipts
+
+Right-click Desktop → New → Shortcut
+Paste this as the location (replace the website URL with your real POS link if different):
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --kiosk-printing --user-data-dir="%LOCALAPPDATA%\PrimewearReceiptChrome" --app="https://demo.mobel.us/public"
+Name it: Primewear POS – Receipts
+Open this shortcut.
+Complete a test sale (or use Settings → Test receipt).
+When the print dialog appears the first time only:
+Destination = receipt printer
+Paper = 80 mm
+Margins = None
+Headers and footers = OFF
+Scale = 100%
+Print once so Chrome remembers these settings.
+From now on, open checkout only from Primewear POS – Receipts. After a sale, the receipt should print directly with no preview.
+
+C. Create Shortcut 2 — Labels
+
+Right-click Desktop → New → Shortcut
+Paste:
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --kiosk-printing --user-data-dir="%LOCALAPPDATA%\PrimewearLabelChrome" --app="https://demo.mobel.us/public"
+Name it: Primewear POS – Labels
+Open this shortcut.
+Print a test label (Quick add with print labels, or Settings → Test label).
+First time only, choose:
+Destination = XP-420B
+Paper size = 40 × 30 mm / Labels
+Margins = None
+Headers and footers = OFF
+Scale = 100%
+Print once so Chrome remembers.
+From now on, do label printing from Primewear POS – Labels. Labels should print directly with no preview.
+
+D. Daily use
+
+Task	Open this shortcut
+Sales / checkout / receipts
+Primewear POS – Receipts
+Barcode labels
+Primewear POS – Labels
+Do not open the POS from a normal Chrome icon if you want silent printing — always use these two shortcuts.
+
+Notes
+
+This setup is required on each till computer.
+--kiosk-printing makes Chrome accept print automatically (no preview).
+Two separate profiles keep the receipt printer and label printer from getting mixed up.
+If preview comes back, check that you opened the correct shortcut and that Chrome was fully closed before using it.
+Please confirm once both shortcuts work on your store PC.
