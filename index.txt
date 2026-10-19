@@ -12,4 +12,39 @@ mobel
 Mobe@5#lRE
 
 
-Zoho/BigPlus POS can print without preview because it is a desktop app talking straight to the printer. Our system is browser-based, so we enable the same experience by opening Chrome with kiosk printing on the till PC. After that one-time setup, receipts and labels also print without the preview window.
+Hi,
+
+We’ve updated Quick add so sizes follow the category — jeans/bottoms no longer show top sizes (S/M/L).
+
+What’s new
+Category size chart	Sizes you get
+Tops
+XS, Small, Medium, Large, XL, XXL
+Bottoms / jeans
+Waist 26, 28, 30, 32, 34, 36, 38, 40, 42
+Kids
+Age bands (2 to 3, 3 to 4, …)
+Custom only
+No presets — you type sizes yourself (e.g. shoes)
+How to use
+1. Set the size chart on each category (one-time)
+
+Open Categories in the menu
+For each category, choose Size chart:
+T-shirts / hoodies / tops → Tops (XS–XXL)
+Jeans / pants / bottoms → Bottoms / jeans (waist)
+Kids wear → Kids (age bands)
+Shoes or odd sizes → Custom only
+Click Save
+2. Add a product
+
+Open Quick add
+Choose the Category (e.g. Bottoms / Jeans)
+Size chips update automatically (waist sizes for jeans, letter sizes for tops)
+Tick sizes & colours, set stock, save / print labels
+3. Need a size that isn’t listed?
+Use Custom size under the size chips and click Add.
+
+Please try adding one top and one jean and confirm the sizes look right. If you want extra waist sizes (e.g. 44) or different kids bands, tell us and we can adjust.
+
+Thanks.
