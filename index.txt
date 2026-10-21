@@ -11,40 +11,36 @@ Stack@Triumfo1
 mobel
 Mobe@5#lRE
 
+1. India
+Keyword                             		URL	                	Rankings
+Freelance Laravel Developer in India		/laravel-development		6, 17, 7, 14, 7 , 16
+2. Delhi NCR
+Freelance PHP Developer in Delhi NCR	—					1, 0, 0, 14, 17 , 0
+	 	/laravel-developer-delhi-ncr	10, 9, 5, 2, 3 , 4
+Freelance Laravel Developer in Noida & Delhi NCR	/			2, 1, 1 , 2
+3. Noida
 
-Hi,
+Freelance Laravel Developer in Noida		/laravel-developer-noida	14, 2, 7 , 2
+Freelance Laravel Developer in Noida						1, 8, 1, 13
+			/laravel-developer-delhi-ncr	14, 8, 16, 16
+Freelancer Laravel Developer Noida	https://aruntyagi.com/laravel-development					2, 2, 2, 2,3
+4**. Greater Noida**
+Web Developer in Greater Noida							12, 0, 0 , 5 , 0
+Website Developer in Greater Noida						17, 0, 0, 17, 0
+5. Dubai
+Freelance React JS Developer in Dubai		/services			3, 1, 4, 11, 15 , 6 
+Laravel Developers in Dubai			/services			15, 47, 20, 11, 35 ,37, 19
+Freelance Laravel Developer in Dubai		/laravel-developer-dubai	5, 4, 3, 2, 6
+Laravel Developer in Dubai			/laravel-developer-dubai	28, 33, 11, 46 , 6
+PHP and Laravel Development Dubai		/blog/php-laravel-development-dubai	20, 25, 31, 0 , 5
+Laravel Dedicated Developer in Dubai		/blog/dedicated-laravel-developer-dubai 	8, 56, 0, 0, 7
+Hire Laravel Developer in Dubai	                /laravel-developer-dubai	   23, 8, 11
+Best Laravel Developers in Dubai	/blog/best-laravel-developers-dubai-remote-proof	1, 0, 0, 0, 7
+Top Laravel Developers in Dubai			/blog/best-laravel-developers-dubai-remote-proof	1, 8, 0, 0, 7
+6. General / Service
+Keyword	URL	Rankings
+Build SaaS with Laravel   	/laravel-saas-development	2, 7, 11, 0 , 38
 
-We’ve updated Quick add so sizes follow the category — jeans/bottoms no longer show top sizes (S/M/L).
+Laravel ai saas development      https://aruntyagi.com/blog/ai-assisted-laravel-saas-development-workflow    14
+laravel saas with ai             https://aruntyagi.com/blog/ai-assisted-laravel-saas-development-workflow    18
 
-What’s new
-Category size chart	Sizes you get
-Tops
-XS, Small, Medium, Large, XL, XXL
-Bottoms / jeans
-Waist 26, 28, 30, 32, 34, 36, 38, 40, 42
-Kids
-Age bands (2 to 3, 3 to 4, …)
-Custom only
-No presets — you type sizes yourself (e.g. shoes)
-How to use
-1. Set the size chart on each category (one-time)
-
-Open Categories in the menu
-For each category, choose Size chart:
-T-shirts / hoodies / tops → Tops (XS–XXL)
-Jeans / pants / bottoms → Bottoms / jeans (waist)
-Kids wear → Kids (age bands)
-Shoes or odd sizes → Custom only
-Click Save
-2. Add a product
-
-Open Quick add
-Choose the Category (e.g. Bottoms / Jeans)
-Size chips update automatically (waist sizes for jeans, letter sizes for tops)
-Tick sizes & colours, set stock, save / print labels
-3. Need a size that isn’t listed?
-Use Custom size under the size chips and click Add.
-
-Please try adding one top and one jean and confirm the sizes look right. If you want extra waist sizes (e.g. 44) or different kids bands, tell us and we can adjust.
-
-Thanks.
